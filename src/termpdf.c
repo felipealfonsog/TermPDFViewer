@@ -22,7 +22,7 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    int page_count = fz_count_pages(doc);
+    int page_count = fz_count_pages(ctx, doc); // Use 'ctx' as the first argument
     int current_page = 0;
     char input;
 
