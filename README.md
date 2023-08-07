@@ -30,7 +30,7 @@ This is an experimental project aimed at bringing a PDF viewer or reader to the 
 [![Visual Studio Code](https://img.shields.io/badge/--007ACC?logo=visual%20studio%20code&logoColor=ffffff)](https://code.visualstudio.com/)
 
 #### Screenshots 
-<!-- >
+
 **Arch Linux** 
 
 ![Screenshot of the application interface](images/linux/sshot-termpdf-1.jpg)
@@ -38,19 +38,6 @@ This is an experimental project aimed at bringing a PDF viewer or reader to the 
 **macOS** 
 
 ![Screenshot of the application interface](images/mac/sshot-termpdf-1.png)
--->
-
-<p align="center">
-**Arch Linux** 
-
-  <img src="images/linux/sshot-termpdf-1.jpg" alt="Screenshot" width="400" height="350">
-</p>
-
-<p align="center">
-**macOS** 
-
-  <img src="images/mac/sshot-termpdf-1.png" alt="Screenshot" width="400" height="350">
-</p>
 
 
 #### Prerequisites:
