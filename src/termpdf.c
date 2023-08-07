@@ -1,58 +1,71 @@
 #include <stdio.h>
-#include <poppler/glib.h>
+#include <mupdf/fitz.h>
 
 int main(int argc, char *argv[]) {
-    if (argc != 2) {
-        printf("Uso: %s <archivo.pdf>\n", argv[0]);
+    if (argc < 2) {
+        printf("Usage: %s <filename.pdf>\n", argv[0]);
         return 1;
     }
 
-    GError *error = NULL;
-    PopplerDocument *doc = poppler_document_new_from_file(argv[1], NULL, &error);
+    fz_context *ctx = fz_new_context(NULL, NULL, FZ_STORE_UNLIMITED);
+    if (!ctx) {
+        printf("Error creating MuPDF context.\n");
+        return 1;
+    }
+
+    fz_register_document_handlers(ctx);
+
+    fz_document *doc = fz_open_document(ctx, argv[1]);
     if (!doc) {
-        g_error("Error al abrir el archivo: %s\n", error->message);
-        g_error_free(error);
+        printf("Error opening the PDF file: %s\n", argv[1]);
+        fz_free_context(ctx);
         return 1;
     }
 
-    int num_pages = poppler_document_get_n_pages(doc);
-    printf("Número de páginas: %d\n", num_pages);
-
+    int page_count = fz_count_pages(doc);
+    int current_page = 0;
     char input;
-    int current_page = 0; // Página actual (0-indexada)
 
-    do {
-        PopplerPage *page = poppler_document_get_page(doc, current_page);
+    printf("PDF Viewer: %s\n", argv[1]);
+
+    while (1) {
+        if (current_page < 0) {
+            current_page = 0;
+        } else if (current_page >= page_count) {
+            current_page = page_count - 1;
+        }
+
+        fz_page *page = fz_load_page(ctx, doc, current_page);
         if (!page) {
-            g_error("Error al obtener la página %d\n", current_page);
-            poppler_document_free(doc);
+            printf("Failed to load the page.\n");
+            fz_close_document(doc);
+            fz_free_context(ctx);
             return 1;
         }
 
-        double width, height;
-        poppler_page_get_size(page, &width, &height);
-        printf("\nPage %d (%.2f x %.2f) - (N)ext, (P)revious, (Q)uit: ", current_page + 1, width, height);
+        fz_rect bounds;
+        fz_bound_page(ctx, page, &bounds);
+        fz_matrix transform = fz_identity;
+
+        fz_device *dev = fz_new_device(ctx, &bounds);
+        fz_run_page(ctx, page, dev, &transform, NULL);
+        fz_free_device(dev);
+        fz_drop_page(ctx, page);
+
+        printf("\nPage %d (%g x %g) - (N)ext, (P)revious, (Q)uit: ", current_page + 1, bounds.x1 - bounds.x0, bounds.y1 - bounds.y0);
         scanf(" %c", &input);
 
-        g_object_unref(page);
-
-        switch (input) {
-            case 'n':
-            case 'N':
-                current_page = (current_page + 1) % num_pages;
-                break;
-            case 'p':
-            case 'P':
-                current_page = (current_page - 1 + num_pages) % num_pages;
-                break;
-            case 'q':
-            case 'Q':
-                break;
-            default:
-                printf("Opción no válida, intenta de nuevo.\n");
+        if (input == 'n' || input == 'N') {
+            current_page++;
+        } else if (input == 'p' || input == 'P') {
+            current_page--;
+        } else if (input == 'q' || input == 'Q') {
+            break;
         }
-    } while (input != 'q' && input != 'Q');
+    }
 
-    g_object_unref(doc);
+    fz_close_document(doc);
+    fz_free_context(ctx);
+
     return 0;
 }
