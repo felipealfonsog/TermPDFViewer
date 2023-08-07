@@ -99,7 +99,7 @@ find /usr/local/lib -name "libmupdf*"
 > /usr/local/lib/libmupdf.dylib
 
 
-## 📋 Requirements
+#### 📋 Requirements
 
 - MuPDF library installed (libmupdf and libmupdf-third).
 - Terminal environment.
@@ -108,7 +108,7 @@ find /usr/local/lib -name "libmupdf*"
 
 This project is still in its experimental stage and may have limitations in terms of features and compatibility. Use at your own discretion.
 
-## 🤝 Support and Contributions
+#### 🤝 Support and Contributions
 
 If you find this project helpful and would like to support its development, there are several ways you can contribute:
 
@@ -122,6 +122,6 @@ If you find this project helpful and would like to support its development, ther
 
 Your support and contributions are greatly appreciated! Thank you for your help in making this project better.
 
-## 📄 License
+#### 📄 License
 
 This project is licensed under the [MIT License](LICENSE).
