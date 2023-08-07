@@ -69,12 +69,14 @@ gcc -o termpdf termpdf.c mupdf/libmupdf.a mupdf/libmupdf-third.a -I mupdf/includ
 find /usr/local/include -name "mupdf*"
 ````
 
-/usr/local/include/mupdf
+> /usr/local/include/mupdf
 
 
 ```
 find /usr/local/lib -name "libmupdf*"
 ```
-/usr/local/lib/libmupdf-third.dylib
-/usr/local/lib/libmupdf.dylib
+> /usr/local/lib/libmupdf-third.dylib
+> /usr/local/lib/libmupdf.dylib
+
+
 
