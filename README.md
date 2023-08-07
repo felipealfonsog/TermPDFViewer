@@ -1,5 +1,5 @@
 # TermPDFViewer
-"TermPDF Viewer" is an open-source PDF file viewer designed to run in the terminal on Linux and macOS. It enables users to navigate and explore PDF files directly from the command line, providing an interactive and lightweight experience. Powered by the "MuPDF" library, this project offers high-quality rendering of PDF pages, allowing users to easily move forward and backward between pages. "TermPDF Viewer" is a versatile and practical tool for those who want to access PDF documents without the need for a heavy graphical viewer, harnessing the powerful and efficient environment of the terminal.
+"TermPDF Viewer" is an open-source PDF file viewer designed to run in the terminal on Linux and macOS. It enables users to navigate and explore PDF files directly from the command line, providing an interactive and lightweight experience. Powered by the "poppler" library, this project offers high-quality rendering of PDF pages, allowing users to easily move forward and backward between pages. "TermPDF Viewer" is a versatile and practical tool for those who want to access PDF documents without the need for a heavy graphical viewer, harnessing the powerful and efficient environment of the terminal.
 
 
 #### Features
@@ -11,11 +11,9 @@
 
 #### Installation
 
-> brew install poppler
+brew install poppler
 
-> gcc -o termpdf termpdf.c `pkg-config --cflags --libs poppler-glib`
-
-#
+gcc -o termpdf termpdf.c `pkg-config --cflags --libs poppler-glib`
 
 
-
+./termpdf <nombre_del_archivo.pdf>
