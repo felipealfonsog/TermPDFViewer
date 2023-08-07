@@ -1,0 +1,17 @@
+#if there's any problem ignoring do this in the terminal: 
+#git rm -r --cached .
+#git add .
+#git commit -m "Remove unwanted files from git history"
+
+__pycache__/
+#build/
+#sql/
+#dist/
+localpycs/
+*.spec
+*.pyc
+*.pkg
+#*.txt
+*.html
+*.toc
+*.zip
