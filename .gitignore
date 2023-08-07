@@ -17,3 +17,6 @@ localpycs/
 *.zip
 *.c
 *.cpp
+*.pdf
+*.tar.gz
+*.pyz
