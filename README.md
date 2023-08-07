@@ -34,11 +34,11 @@ This is an experimental project aimed at bringing a PDF viewer or reader to the 
 **Arch Linux** 
 
 ![Screenshot of the application interface](images/linux/sshot-termpdf-1.jpg)
-
+<!-- 
 **macOS** 
 
 ![Screenshot of the application interface](images/mac/sshot-termpdf-1.png)
-
+-->
 
 #### Prerequisites:
 
