@@ -63,8 +63,8 @@ Finalmente, compila tu programa utilizando los archivos de la biblioteca MuPDF e
 gcc -o termpdf termpdf.c mupdf/libmupdf.a mupdf/libmupdf-third.a -I mupdf/include -lm -ldl
 ````
 
-En macOS la ruta es:
-=====================
+#### En macOS la ruta es:
+
 ```
 find /usr/local/include -name "mupdf*"
 ````
