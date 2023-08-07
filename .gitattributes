@@ -1,0 +1,5 @@
+# Set Python as the language for files with .py extension
+*.py linguist-language=Python
+
+# Set HTML as the language for files with .html extension
+*.html linguist-language=HTML
