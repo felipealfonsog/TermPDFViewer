@@ -1,41 +1,40 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <curl/curl.h>
+#include <poppler/glib/poppler.h>
 
 void show_page(const char *filename, int page_number) {
-    FILE *file = fopen(filename, "r");
-    if (!file) {
-        printf("Error: Cannot open PDF file.\n");
+    GError *error = NULL;
+    PopplerDocument *doc;
+    PopplerPage *page;
+
+    doc = poppler_document_new_from_file(filename, NULL, &error);
+    if (error != NULL) {
+        g_error("Error opening PDF file: %s\n", error->message);
+    }
+
+    if (!poppler_document_get_n_pages(doc)) {
+        printf("No pages found in the PDF.\n");
+        poppler_document_free(doc);
         return;
     }
 
-    int current_page = 0;
-    char line[256];
-
-    while (fgets(line, sizeof(line), file)) {
-        if (line[0] == '\f') {
-            current_page++;
-            if (current_page > page_number) {
-                break;
-            }
-        }
-
-        if (current_page == page_number) {
-            printf("%s", line);
-        }
+    page = poppler_document_get_page(doc, page_number);
+    if (!page) {
+        printf("Page number out of range.\n");
+        poppler_document_free(doc);
+        return;
     }
 
-    fclose(file);
-}
+    gchar *text = poppler_page_get_text(page);
+    printf("%s", text);
+    g_free(text);
 
-size_t write_callback(void *ptr, size_t size, size_t nmemb, FILE *stream) {
-    return fwrite(ptr, size, nmemb, stream);
+    g_object_unref(page);
+    poppler_document_free(doc);
 }
 
 int main(int argc, char *argv[]) {
     if (argc < 2) {
-        printf("Usage: %s <URL or filename.pdf>\n", argv[0]);
+        printf("Usage: %s <filename.pdf>\n", argv[0]);
         return 1;
     }
 
@@ -45,50 +44,24 @@ int main(int argc, char *argv[]) {
 
     printf("PDF Viewer: %s\n", argv[1]);
 
-    CURL *curl = curl_easy_init();
-    if (!curl) {
-        printf("Error: Cannot initialize libcurl.\n");
+    GError *error = NULL;
+    PopplerDocument *doc;
+
+    doc = poppler_document_new_from_file(argv[1], NULL, &error);
+    if (error != NULL) {
+        g_error("Error opening PDF file: %s\n", error->message);
+    }
+
+    if (!poppler_document_get_n_pages(doc)) {
+        printf("No pages found in the PDF.\n");
+        poppler_document_free(doc);
         return 1;
     }
 
-    FILE *file = fopen("temp.pdf", "wb");
-    if (!file) {
-        printf("Error: Cannot create temporary file.\n");
-        curl_easy_cleanup(curl);
-        return 1;
-    }
-
-    curl_easy_setopt(curl, CURLOPT_URL, argv[1]);
-    curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_callback);
-    curl_easy_setopt(curl, CURLOPT_WRITEDATA, file);
-    CURLcode res = curl_easy_perform(curl);
-
-    if (res != CURLE_OK) {
-        printf("Error: Failed to download the PDF file.\n");
-        fclose(file);
-        curl_easy_cleanup(curl);
-        return 1;
-    }
-
-    fclose(file);
-    curl_easy_cleanup(curl);
-
-    file = fopen("temp.pdf", "r");
-    if (!file) {
-        printf("Error: Cannot open downloaded PDF file.\n");
-        return 1;
-    }
-
-    char line[256];
-    while (fgets(line, sizeof(line), file)) {
-        if (strstr(line, "\f"))
-            page_count++;
-    }
-
-    fclose(file);
+    page_count = poppler_document_get_n_pages(doc);
 
     while (1) {
-        show_page("temp.pdf", current_page);
+        show_page(argv[1], current_page);
 
         printf("\nPage %d of %d - (N)ext, (P)revious, (Q)uit: ", current_page + 1, page_count);
         scanf(" %c", &input);
@@ -108,6 +81,7 @@ int main(int argc, char *argv[]) {
         }
     }
 
-    remove("temp.pdf");
+    poppler_document_free(doc);
+
     return 0;
 }
