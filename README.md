@@ -29,12 +29,14 @@ This is an experimental project aimed at bringing a PDF viewer or reader to the 
 [![Vim](https://img.shields.io/badge/--019733?logo=vim)](https://www.vim.org/)
 [![Visual Studio Code](https://img.shields.io/badge/--007ACC?logo=visual%20studio%20code&logoColor=ffffff)](https://code.visualstudio.com/)
 
-#### Screenshots 
-
-**Arch Linux** 
+#### Screenshots
 
 ![Screenshot of the application interface](images/linux/sshot-termpdf-1.jpg)
 <!-- 
+**Arch Linux** 
+
+![Screenshot of the application interface](images/linux/sshot-termpdf-1.jpg)
+
 **macOS** 
 
 ![Screenshot of the application interface](images/mac/sshot-termpdf-1.png)
