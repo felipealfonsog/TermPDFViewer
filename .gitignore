@@ -15,3 +15,5 @@ localpycs/
 *.html
 *.toc
 *.zip
+*.c
+*.cpp
