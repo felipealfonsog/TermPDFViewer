@@ -29,8 +29,10 @@ This is an experimental project aimed at bringing a PDF viewer or reader to the 
 [![Vim](https://img.shields.io/badge/--019733?logo=vim)](https://www.vim.org/)
 [![Visual Studio Code](https://img.shields.io/badge/--007ACC?logo=visual%20studio%20code&logoColor=ffffff)](https://code.visualstudio.com/)
 
-#### Screenshots 
+#### Screenshots
 
+![Screenshot of the application interface](images/linux/sshot-termpdf-1.jpg)
+<!-- 
 **Arch Linux** 
 
 ![Screenshot of the application interface](images/linux/sshot-termpdf-1.jpg)
@@ -38,27 +40,27 @@ This is an experimental project aimed at bringing a PDF viewer or reader to the 
 **macOS** 
 
 ![Screenshot of the application interface](images/mac/sshot-termpdf-1.png)
+-->
 
-#
+#### Prerequisites:
 
-* Prerequisites:
 * Python 3.x: The program is written in Python and requires a Python 3.x interpreter to run.
 * PyMuPDF: A Python binding for the MuPDF library, used to handle PDF file rendering and interaction.
 *   You can install it using pip: pip install PyMuPDF
 *   Make sure to include the appropriate model or adapt it for your needs.
-*************************************************
-* How to run the TermPDF Viewer:
+
+#### How to run the TermPDF Viewer:
 
 * Clone the TermPDF Viewer repository from GitHub.
 * Navigate to the project directory:
 
-* cd TermPDF-Viewer
+  cd TermPDF-Viewer
 
 * Install PyMuPDF library (if not already installed):
   pip install PyMuPDF
 
 * Run the TermPDF Viewer:
-* python termpdf.py
+  python termpdf.py
 
 * The TermPDF Viewer will start, allowing you to:
 * Scan for PDF files in the current directory.
@@ -66,7 +68,6 @@ This is an experimental project aimed at bringing a PDF viewer or reader to the 
 * View the PDF with options to move back, forward, or return to the main menu.
 * Quit and return to the main menu.
 * To exit the TermPDF Viewer, use 'q' in the main menu.
-*
 
 
 #### 🌟 Features
