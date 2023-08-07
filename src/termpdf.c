@@ -1,88 +1,109 @@
 #include <stdio.h>
-#include <stdlib.h>
+#include <SDL2/SDL.h>
 #include <mupdf/fitz.h>
 
-void render_page(fz_context *ctx, fz_document *doc, int page_num, float zoom) {
-    fz_page *page = fz_load_page(ctx, doc, page_num);
-    if (!page) {
-        printf("Failed to load page %d.\n", page_num + 1);
-        return;
-    }
+#define INITIAL_ZOOM 1.0
 
+void renderPage(SDL_Renderer *renderer, fz_page *page, float zoom) {
+    fz_matrix transform;
     fz_rect bounds;
-    fz_bound_page(ctx, page, &bounds);
-    fz_matrix transform = fz_scale(zoom, zoom);
+    fz_device *dev;
 
-    fz_device *dev = fz_new_device(ctx, &bounds);
-    fz_run_page(ctx, page, dev, &transform, NULL);
+    // Calculate bounds and initialize a rendering device
+    fz_bound_page(fz_page_bound_context(page), page, &bounds);
+    dev = fz_new_draw_device(fz_page_bound_context(page), &transform, NULL);
+    fz_run_page(fz_page_bound_context(page), page, dev, &transform, NULL);
+
+    // Create a display list and draw the page contents onto it
+    fz_display_list *list = fz_device_list(dev);
+    fz_matrix ctm = fz_scale(zoom, -zoom);
+    fz_pixmap *pix = fz_new_pixmap_with_bbox(fz_page_bound_context(page), fz_device_colorspace(dev), &bounds);
+    fz_device *draw_dev = fz_new_draw_device(fz_page_bound_context(page), &ctm, pix);
+
+    fz_run_display_list(fz_page_bound_context(page), list, draw_dev, fz_identity, NULL);
+    fz_free_display_list(fz_page_bound_context(page), list);
     fz_free_device(dev);
-    fz_drop_page(ctx, page);
+    fz_free_device(draw_dev);
+
+    // Create a texture from the pixmap and render it on the window
+    SDL_Texture *texture = SDL_CreateTextureFromSurface(renderer, SDL_CreateRGBSurfaceFrom(
+        pix->samples, pix->w, pix->h, 8 * 4, pix->stride,
+        0x000000FF, 0x0000FF00, 0x00FF0000, 0xFF000000
+    ));
+
+    SDL_Rect destRect = { 0, 0, pix->w, pix->h };
+    SDL_RenderCopy(renderer, texture, NULL, &destRect);
+
+    SDL_DestroyTexture(texture);
+    fz_drop_pixmap(fz_page_bound_context(page), pix);
 }
 
 int main(int argc, char *argv[]) {
     if (argc != 2) {
-        printf("Usage: %s <filename.pdf>\n", argv[0]);
+        fprintf(stderr, "Usage: %s <input.pdf>\n", argv[0]);
         return 1;
     }
 
+    // Initialize MuPDF context and open the PDF document
     fz_context *ctx = fz_new_context(NULL, NULL, FZ_STORE_UNLIMITED);
     if (!ctx) {
-        printf("Error creating MuPDF context.\n");
+        fprintf(stderr, "Failed to create MuPDF context\n");
         return 1;
     }
 
     fz_document *doc = fz_open_document(ctx, argv[1]);
     if (!doc) {
-        printf("Error opening the PDF file: %s\n", argv[1]);
+        fprintf(stderr, "Failed to open document: %s\n", argv[1]);
         fz_free_context(ctx);
         return 1;
     }
 
-    int page_count = fz_count_pages(ctx, doc);
-    if (page_count <= 0) {
-        printf("No pages found in the PDF.\n");
-        fz_close_document(doc);
-        fz_free_context(ctx);
-        return 1;
-    }
-
+    int num_pages = fz_count_pages(ctx, doc);
     int current_page = 0;
-    float zoom = 1.0;
-    char input;
+    float zoom = INITIAL_ZOOM;
 
-    printf("PDF Viewer: %s\n", argv[1]);
+    // Initialize SDL and create a window and renderer
+    SDL_Init(SDL_INIT_VIDEO);
+    SDL_Window *window = SDL_CreateWindow("PDF Viewer", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 800, 600, 0);
+    SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
-    while (1) {
-        render_page(ctx, doc, current_page, zoom);
+    SDL_Event e;
+    int quit = 0;
 
-        printf("\nPage %d/%d - Zoom: %.2f - (N)ext, (P)revious, (Z)oom, (G)o to page, (Q)uit: ",
-               current_page + 1, page_count, zoom);
-        scanf(" %c", &input);
-
-        if (input == 'n' || input == 'N') {
-            current_page++;
-            if (current_page >= page_count) {
-                current_page = page_count - 1;
+    // Main loop for handling events and rendering pages
+    while (!quit) {
+        while (SDL_PollEvent(&e)) {
+            if (e.type == SDL_QUIT) {
+                quit = 1;
+            } else if (e.type == SDL_KEYDOWN) {
+                if (e.key.keysym.sym == SDLK_LEFT && current_page > 0) {
+                    current_page--;
+                } else if (e.key.keysym.sym == SDLK_RIGHT && current_page < num_pages - 1) {
+                    current_page++;
+                } else if (e.key.keysym.sym == SDLK_PLUS || e.key.keysym.sym == SDLK_KP_PLUS) {
+                    zoom += 0.1;
+                } else if (e.key.keysym.sym == SDLK_MINUS || e.key.keysym.sym == SDLK_KP_MINUS) {
+                    if (zoom > 0.1) {
+                        zoom -= 0.1;
+                    }
+                }
             }
-        } else if (input == 'p' || input == 'P') {
-            current_page--;
-            if (current_page < 0) {
-                current_page = 0;
-            }
-        } else if (input == 'z' || input == 'Z') {
-            printf("Enter zoom factor (e.g. 1.5): ");
-            scanf("%f", &zoom);
-        } else if (input == 'g' || input == 'G') {
-            printf("Enter page number (1-%d): ", page_count);
-            int new_page;
-            scanf("%d", &new_page);
-            if (new_page >= 1 && new_page <= page_count) {
-                current_page = new_page - 1;
-            }
-        } else if (input == 'q' || input == 'Q') {
-            break;
         }
+
+        // Clear the renderer and render the current page
+        SDL_RenderClear(renderer);
+
+        fz_page *page = fz_load_page(ctx, doc, current_page);
+        renderPage(renderer, page, zoom);
+        fz_free_page(ctx, page);
+
+        SDL_RenderPresent(renderer);
     }
+
+    // Clean up and exit
+    SDL_DestroyRenderer(renderer);
+    SDL_DestroyWindow(window);
+    SDL_Quit();
 
     fz_close_document(doc);
     fz_free_context(ctx);

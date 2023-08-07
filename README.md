@@ -1,5 +1,12 @@
 ## 📄 Terminal PDF Viewer (Experimental) 🚀
-"TermPDF Viewer" is an open-source PDF file viewer designed to run in the terminal on Linux and macOS. It enables users to navigate and explore PDF files directly from the command line, providing an interactive and lightweight experience. Powered by the "MuPDF" library, this project offers high-quality rendering of PDF pages, allowing users to easily move forward and backward between pages. "TermPDF Viewer" is a versatile and practical tool for those who want to access PDF documents without the need for a heavy graphical viewer, harnessing the powerful and efficient environment of the terminal.
+
+TermPDF Viewer is a Python program that enables users to view and navigate PDF files directly within the terminal.
+
+"TermPDF Viewer" is an open-source PDF file viewer designed to run in the terminal on Linux and macOS. It enables users to navigate and explore PDF files directly from the command line, providing an interactive and lightweight experience. Powered by the "PyMuPDF" library, this project offers high-quality rendering of PDF pages, allowing users to easily move forward and backward between pages. "TermPDF Viewer" is a versatile and practical tool for those who want to access PDF documents without the need for a heavy graphical viewer, harnessing the powerful and efficient environment of the terminal.
+
+TermPDF Viewer is a command-line utility built in Python that empowers users to effortlessly view and interact with PDF files from their terminal environment. 
+
+The program offers a menu-driven interface allowing users to scan and list PDF files in a directory, choose a file to view by entering its corresponding number, and then navigate through its pages. Additionally, the program offers convenient options to move forward, go back, or quit the PDF viewing session, ensuring a seamless and efficient document viewing experience directly within the terminal.
 
 #
 
@@ -7,9 +14,8 @@ This is an experimental project aimed at bringing a PDF viewer or reader to the 
 
 #
 
-<!-- 
+
 ![Version](https://img.shields.io/github/release/felipealfonsog/TermPDFViewer.svg?style=flat&color=blue)
--->
 ![Main Language](https://img.shields.io/github/languages/top/felipealfonsog/TermPDFViewer.svg?style=flat&color=blue)
 [![Open Source? Yes!](https://badgen.net/badge/Open%20Source%20%3F/Yes%21/blue?icon=github)](https://github.com/Naereen/badges/)
 
@@ -20,6 +26,37 @@ This is an experimental project aimed at bringing a PDF viewer or reader to the 
 
 [![Vim](https://img.shields.io/badge/--019733?logo=vim)](https://www.vim.org/)
 [![Visual Studio Code](https://img.shields.io/badge/--007ACC?logo=visual%20studio%20code&logoColor=ffffff)](https://code.visualstudio.com/)
+
+# 
+
+
+* Prerequisites:
+* Python 3.x: The program is written in Python and requires a Python 3.x interpreter to run.
+* PyMuPDF: A Python binding for the MuPDF library, used to handle PDF file rendering and interaction.
+*   You can install it using pip: pip install PyMuPDF
+*   Make sure to include the appropriate model or adapt it for your needs.
+*************************************************
+* How to run the TermPDF Viewer:
+
+* Clone the TermPDF Viewer repository from GitHub.
+* Navigate to the project directory:
+
+* cd TermPDF-Viewer
+
+* Install PyMuPDF library (if not already installed):
+  pip install PyMuPDF
+
+* Run the TermPDF Viewer:
+* python termpdf.py
+
+* The TermPDF Viewer will start, allowing you to:
+* Scan for PDF files in the current directory.
+* Select a PDF file to view by entering its number.
+* View the PDF with options to move back, forward, or return to the main menu.
+* Quit and return to the main menu.
+* To exit the TermPDF Viewer, use 'q' in the main menu.
+*
+
 
 #### 🌟 Features
 
@@ -36,7 +73,37 @@ This is an experimental project aimed at bringing a PDF viewer or reader to the 
 
 #### NOTES
 
+#### Python (Working fine)
+
+pip install PyMuPDF
+
+python3 termpdf.py
+
+********** Generating the executable ***********
+
+pyinstaller --onefile termpdf.py
+
+pyinstaller --onefile --distpath ../ termpdf.py
+
+
+
+
+#### Libs - experiments in C 
+
 brew install mupd
+
+brew install freeglut
+
+brew install glfw
+
+brew install sdl2
+
+#### Libs - experiments in C++:
+
+brew install poppler
+brew install podofo
+
+
 
 then, any of these: 
 
@@ -52,6 +119,10 @@ gcc -o termpdf termpdf.c -I/usr/local/include/mupdf -L/usr/local/lib -lmupdf -lm
 gcc -o termpdf termpdf.c -I/usr/local/include -L/usr/local/lib -lmupdf -lmupdf-third -lm
 ```
 
+gcc -o termpdf termpdf.c -I/usr/local/include -L/usr/local/lib -lmupdf -lmupdf-third -lm -lglut -lGL
+
+
+#
 
 Or: 
 
