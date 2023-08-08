@@ -93,6 +93,14 @@ python3 termpdf.py
 
 ********** Generating the executable ***********
 
+Recommended:
+
+brew install pyinstaller
+
+in Arch:
+yay -S pyinstaller
+
+
 pyinstaller --onefile termpdf.py
 
 pyinstaller --onefile --distpath ../ termpdf.py
