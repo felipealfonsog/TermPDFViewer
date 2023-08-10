@@ -101,7 +101,11 @@ Thank you for joining me on this journey, and I hope Term-Notes brings value to 
 ## Installation
 ### Via AUR using YAY
 
+[![AUR](https://img.shields.io/aur/version/term-pdf?color=brightgreen)](https://aur.archlinux.org/packages/term-pdf)
+
+<!-- 
 [![AUR](https://img.shields.io/aur/version/term-pdf.svg)](https://aur.archlinux.org/packages/term-pdf)
+-->
 
 https://aur.archlinux.org/packages/term-pdf
 
