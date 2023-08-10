@@ -1,4 +1,4 @@
-## 📄 Terminal PDF Viewer (Experimental) 🚀
+## 📄 Terminal PDF Viewer
 
 TermPDF Viewer is a Python program that enables users to view and navigate PDF files directly within the terminal.
 
@@ -10,16 +10,11 @@ The program offers a menu-driven interface allowing users to scan and list PDF f
 
 #
 
-This is an experimental project aimed at bringing a PDF viewer or reader to the terminal environment. The Terminal PDF Viewer leverages the capabilities of the MuPDF library to enable users to view PDF documents directly within the terminal.
-
-#
-
 
 ![Version](https://img.shields.io/github/release/felipealfonsog/TermPDFViewer.svg?style=flat&color=blue)
 ![Main Language](https://img.shields.io/github/languages/top/felipealfonsog/TermPDFViewer.svg?style=flat&color=blue)
 [![Open Source? Yes!](https://badgen.net/badge/Open%20Source%20%3F/Yes%21/blue?icon=github)](https://github.com/Naereen/badges/)
 
-[![Experimental Project](https://img.shields.io/badge/Project-Type%3A%20Experimental-blueviolet)](#)
 
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
 <!--
@@ -140,9 +135,6 @@ This command will automatically fetch the package from AUR and handle the instal
 - Experimental project with limited functionality.
 - Built using the MuPDF library for rendering PDF content.
 
-#### 📝Important
-
-This project is still in its experimental stage and may have limitations in terms of features and compatibility. Use at your own discretion.
 
 #### 🤝 Support and Contributions
 
@@ -157,6 +149,15 @@ If you find this project helpful and would like to support its development, ther
 [![GitHub Sponsors](https://img.shields.io/badge/Sponsor%20me%20on-GitHub-%23EA4AAA?style=flat-square&logo=github-sponsors&logoColor=white)](https://github.com/sponsors/felipealfonsog)
 
 Your support and contributions are greatly appreciated! Thank you for your help in making this project better.
+
+
+#### 📝Important
+
+[![Experimental Project](https://img.shields.io/badge/Project-Type%3A%20Experimental-blueviolet)](#)
+
+This is an experimental project aimed at bringing a PDF viewer or reader to the terminal environment. The Terminal PDF Viewer leverages the capabilities of the MuPDF library to enable users to view PDF documents directly within the terminal.
+
+This project is still in its experimental (v.0.0.2 - not yet as a 1.0.0 version) stage and may have limitations in terms of features and compatibility. Use at your own discretion.
 
 #### 📄 License
 
