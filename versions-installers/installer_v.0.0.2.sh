@@ -100,13 +100,17 @@ install_dependencies() {
     fi
 }
 
-download_binary() {
-    local binary_url="https://github.com/felipealfonsog/TermPDFViewer/raw/main/dist/linux/termpdf-linux"
-    wget -O termpdf-linux "$binary_url"
+copy_and_rename_binary() {
+    local source_path="$1"
+    local dest_path="$2"
+
+    sudo cp "$source_path" "$dest_path"
+    local binary_name=$(basename "$dest_path")
+    echo "Binary '$binary_name' has been copied to '$dest_path'."
 }
 
 move_to_bin_directory() {
-    local binary_name="term-pdf"
+    local binary_name=$(basename "$1")
     local os=$(uname -s)
     local dest_dir=""
 
@@ -119,23 +123,33 @@ move_to_bin_directory() {
         exit 1
     fi
 
-    sudo mv "termpdf-linux" "$dest_dir/$binary_name"
+    sudo mv "$1" "$dest_dir/$binary_name"
     echo "Binary '$binary_name' has been moved to '$dest_dir'."
 }
 
 remove_compiled_file() {
-    rm "$0"
+    rm installer
 }
 
 set_permissions() {
     sudo chmod +x "/usr/local/bin/term-pdf"
 }
 
+source_path=""
+if [[ $(uname -s) == "Darwin" ]]; then
+    source_path="./dist/macos/termpdf-macos"
+elif [[ $(uname -s) == "Linux" ]]; then
+    source_path="./dist/linux/termpdf-linux"
+else
+    echo "Unsupported platform."
+    exit 1
+fi
+
 welcome_message
 install_homebrew
 install_dependencies
-download_binary
-move_to_bin_directory
+copy_and_rename_binary "$source_path" "./termpdf"
+move_to_bin_directory "./termpdf"
 remove_compiled_file
 set_permissions
 

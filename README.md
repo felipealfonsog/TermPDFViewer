@@ -49,16 +49,82 @@ This is an experimental project aimed at bringing a PDF viewer or reader to the 
 *   You can install it using pip: pip install PyMuPDF
 *   Make sure to include the appropriate model or adapt it for your needs.
 
-#### How to run the TermPDF Viewer (Installation):
+#### To Install it: 
+To install Term-Notes, simply run the installer script available [here](https://github.com/felipealfonsog/TermPDFViewer/raw/main/installer.sh).
 
-* Installar with AUR in Arch
-  yay -S term-pdf
+Or just Copy - Paste in your terminal and use -curl- to start downloading the installer:
 
-* Install with bash
-  ./installer.sh
+   ```
+   curl -O https://raw.githubusercontent.com/felipealfonsog/TermPDFViewer/main/installer.sh
+   ```
 
-* Run the TermPDF Viewer:
-  python termpdf.py
+If you want to use -wget- just copy/paste this line:
+
+   ```
+   wget https://github.com/felipealfonsog/TermPDFViewer/raw/main/installer.sh
+   ```
+
+   On macOS to download - wget - just install it with Homebrew:
+
+   ```
+   brew install wget
+   ```
+
+#### Important note when installing:
+
+If you encounter issues executing the file in the terminal, like this message "-bash: ./installer.sh: Permission denied", follow these simple steps to fix it:
+
+1. Open your terminal.
+2. Navigate to the directory where the installer script is located using the `cd` command.
+3. Run the following command to grant execute permission to the installer script:
+
+   ```
+   chmod +x installer.sh
+   ```
+   
+4. Now you can run the installer without any problems.
+
+   ```
+   ./installer.sh
+   ```
+   NOTE: The script will ask for -sudo permissions-. Just simply type in macOS your macOS user password, and in Linux your -sudo- password.
+
+Now type 'term-pdf' in the terminal and enjoy using Term-Notes! 😊🚀
+
+Feel free to reach out if you need any further assistance!
+
+#### Updating with the script: 
+If you want to update term-notes in your system, re-run the script:
+
+   ```
+   ./installer.sh
+   ```
+Please note that if you encounter any issues or have suggestions, feel free to raise an issue on the [TermNotes repository](https://github.com/felipealfonsog/TermPDFViewer/issues). Your feedback is invaluable!
+
+Thank you for joining me on this journey, and I hope Term-Notes brings value to your life and workflow. Let's continue making technology accessible and enjoyable for everyone!
+
+## Installation
+### Via AUR using YAY
+
+[![AUR](https://img.shields.io/aur/version/term-pdf.svg)](https://aur.archlinux.org/packages/term-pdf)
+
+https://aur.archlinux.org/packages/term-pdf
+
+Term PDF Viewer is available on AUR (Arch User Repository), and it can be installed using the `yay` package manager. Follow the steps below to install Term Notes:
+
+1. Make sure you have `yay` installed. If not, you can install it with the following command:
+   
+   ```
+   sudo pacman -S yay
+   ```
+   Once yay is installed, you can install Term Notes by running the following command:
+   
+   ```
+   yay -S term-pdf
+   ```
+This command will automatically fetch the package from AUR and handle the installation process for you.
+
+#### Futures
 
 * The TermPDF Viewer will start, allowing you to:
 * Scan for PDF files in the current directory.
@@ -68,14 +134,13 @@ This is an experimental project aimed at bringing a PDF viewer or reader to the 
 * To exit the TermPDF Viewer, use 'q' in the main menu.
 
 
-#### 🌟 Features
 
 - View PDF documents within the terminal.
 - Navigate through pages using keyboard commands.
 - Experimental project with limited functionality.
 - Built using the MuPDF library for rendering PDF content.
 
-#### NOTES FOR THE AUTHOR
+#### NOTES ONLY FOR THE AUTHOR
 
 #### Python (Working fine)
 
