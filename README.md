@@ -8,6 +8,15 @@ TermPDF Viewer is a command-line utility built in Python that empowers users to 
 
 The program offers a menu-driven interface allowing users to scan and list PDF files in a directory, choose a file to view by entering its corresponding number, and then navigate through its pages. Additionally, the program offers convenient options to move forward, go back, or quit the PDF viewing session, ensuring a seamless and efficient document viewing experience directly within the terminal.
 
+### How to Use:
+After installation, simply position the cursor within the terminal directory of your choice. TermPDF Viewer will scan for PDF files within the specified folder, granting you instant access to view and open these files seamlessly.
+
+### Key Features:
+Effortless Installation: Get started quickly by following the simple installation process.
+Seamless PDF Scanning: Place the cursor in any terminal directory to initiate automatic scanning for PDF files.
+Intuitive Navigation: Easily browse and select PDF files to view within the terminal interface.
+Convenient File Access: Open and navigate PDF documents without leaving the terminal environment.
+
 #
 
 
@@ -37,14 +46,14 @@ The program offers a menu-driven interface allowing users to scan and list PDF f
 ![Screenshot of the application interface](images/mac/sshot-termpdf-1.png)
 -->
 
-#### Prerequisites:
+### Prerequisites:
 
 * Python 3.x: The program is written in Python and requires a Python 3.x interpreter to run.
 * PyMuPDF: A Python binding for the MuPDF library, used to handle PDF file rendering and interaction.
 *   You can install it using pip: pip install PyMuPDF
 *   Make sure to include the appropriate model or adapt it for your needs.
 
-#### To Install it: 
+### To Install it: 
 To install Term-Notes, simply run the installer script available [here](https://github.com/felipealfonsog/TermPDFViewer/raw/main/installer.sh).
 
 Or just Copy - Paste in your terminal and use -curl- to start downloading the installer:
@@ -98,7 +107,7 @@ Please note that if you encounter any issues or have suggestions, feel free to r
 
 Thank you for joining me on this journey, and I hope Term-Notes brings value to your life and workflow. Let's continue making technology accessible and enjoyable for everyone!
 
-## Installation
+### Installation
 ### Via AUR using YAY
 
 [![AUR](https://img.shields.io/aur/version/term-pdf?color=blue)](https://aur.archlinux.org/packages/term-pdf)
