@@ -106,7 +106,7 @@ If you want to update term-notes in your system, re-run the script:
    ```
    ./installer.sh
    ```
-Please note that if you encounter any issues or have suggestions, feel free to raise an issue on the [TermNotes repository](https://github.com/felipealfonsog/TermPDFViewer/issues). Your feedback is invaluable!
+Please note that if you encounter any issues or have suggestions, feel free to raise an issue on the [TermPDF repository](https://github.com/felipealfonsog/TermPDFViewer/issues). Your feedback is invaluable!
 
 Thank you for joining me on this journey, and I hope Term-PDF Viewer brings value to your life and workflow. Let's continue making technology accessible and enjoyable for everyone!
 
