@@ -96,7 +96,7 @@ If you encounter issues executing the file in the terminal, like this message "-
    ```
    NOTE: The script will ask for -sudo permissions-. Just simply type in macOS your macOS user password, and in Linux your -sudo- password.
 
-Now type 'term-pdf' in the terminal and enjoy using Term-Notes! 😊🚀
+Now type 'term-pdf' in the terminal and enjoy using Term-PDF! 😊🚀
 
 Feel free to reach out if you need any further assistance!
 
