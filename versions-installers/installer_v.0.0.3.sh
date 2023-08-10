@@ -96,81 +96,40 @@ install_dependencies() {
 
     if ! pip show pymupdf &>/dev/null; then
         echo "PyMuPDF not found. Installing PyMuPDF..."
-        sudo pacman -S python-pymupdf
+        pip install pymupdf
     fi
 }
 
 download_binary() {
-    local os=$(uname -s)
-    local binary_url=""
-    local binary_name=""
-
-    if [[ "$os" == "Darwin" ]]; then
-        binary_url="https://github.com/felipealfonsog/TermPDFViewer/raw/main/dist/macos/termpdf-macos"
-        binary_name="termpdf-macos"
-    elif [[ "$os" == "Linux" ]]; then
-        binary_url="https://github.com/felipealfonsog/TermPDFViewer/raw/main/dist/linux/termpdf-linux"
-        binary_name="termpdf-linux"
-    else
-        echo "Unsupported platform."
-        exit 1
-    fi
-
-    wget -O "$binary_name" "$binary_url"
+    local binary_url="https://github.com/felipealfonsog/TermPDFViewer/raw/main/dist/linux/termpdf-linux"
+    wget -O termpdf-linux "$binary_url"
 }
 
 move_to_bin_directory() {
+    local binary_name="term-pdf"
     local os=$(uname -s)
-    local binary_name=""
     local dest_dir=""
 
     if [[ "$os" == "Darwin" ]]; then
         dest_dir="/usr/local/bin"
-        binary_name="termpdf-macos"
     elif [[ "$os" == "Linux" ]]; then
-        dest_dir="/usr/bin"
-        binary_name="termpdf-linux"
+        dest_dir="/usr/local/bin"
     else
         echo "Unsupported platform."
         exit 1
     fi
 
-    sudo mv "$binary_name" "$dest_dir/term-pdf"
+    sudo mv "termpdf-linux" "$dest_dir/$binary_name"
+    echo "Binary '$binary_name' has been moved to '$dest_dir'."
 }
 
-
 remove_compiled_file() {
-    local os=$(uname -s)
-    local script_name="$0"
-
-    if [[ "$os" == "Darwin" ]]; then
-        # On macOS, remove the downloaded binary instead
-        rm "$script_name"
-    elif [[ "$os" == "Linux" ]]; then
-        # On Linux, remove the downloaded binary instead
-        rm "$script_name"
-    else
-        echo "Unsupported platform."
-        exit 1
-    fi
+    rm "$0"
 }
 
 set_permissions() {
-    local os=$(uname -s)
-    local binary_name=""
-
-    if [[ "$os" == "Darwin" ]]; then
-        binary_name="termpdf-macos"
-        sudo chmod +x "/usr/local/bin/term-pdf"
-    elif [[ "$os" == "Linux" ]]; then
-        binary_name="termpdf-linux"
-        sudo chmod +x "/usr/bin/term-pdf"
-    else
-        echo "Unsupported platform."
-        exit 1
-    fi
+    sudo chmod +x "/usr/local/bin/term-pdf"
 }
-
 
 welcome_message
 install_homebrew
