@@ -49,15 +49,13 @@ This is an experimental project aimed at bringing a PDF viewer or reader to the 
 *   You can install it using pip: pip install PyMuPDF
 *   Make sure to include the appropriate model or adapt it for your needs.
 
-#### How to run the TermPDF Viewer:
+#### How to run the TermPDF Viewer (Installation):
 
-* Clone the TermPDF Viewer repository from GitHub.
-* Navigate to the project directory:
+* Installar with AUR in Arch
+  yay -S term-pdf
 
-  cd TermPDF-Viewer
-
-* Install PyMuPDF library (if not already installed):
-  pip install PyMuPDF
+* Install with bash
+  ./installer.sh
 
 * Run the TermPDF Viewer:
   python termpdf.py
@@ -77,13 +75,7 @@ This is an experimental project aimed at bringing a PDF viewer or reader to the 
 - Experimental project with limited functionality.
 - Built using the MuPDF library for rendering PDF content.
 
-#### 🛠️ Installation
-
-1. Clone the repository to your local machine.
-2. Compile the source code using the provided instructions.
-3. Run the `termpdf` executable followed by the path to the PDF file you want to view.
-
-#### NOTES
+#### NOTES FOR THE AUTHOR
 
 #### Python (Working fine)
 
@@ -91,7 +83,7 @@ pip install PyMuPDF
 
 python3 termpdf.py
 
-********** Generating the executable ***********
+> Generating the executable
 
 Recommended:
 
@@ -200,7 +192,7 @@ find /usr/local/lib -name "libmupdf*"
 - MuPDF library installed (libmupdf and libmupdf-third).
 - Terminal environment.
 
-#### 📝 Notes
+#### 📝Important
 
 This project is still in its experimental stage and may have limitations in terms of features and compatibility. Use at your own discretion.
 
