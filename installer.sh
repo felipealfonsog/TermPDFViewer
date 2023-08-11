@@ -116,7 +116,7 @@ download_binary() {
         exit 1
     fi
 
-    wget -O "$binary_name" "$binary_url"
+    curl -O "$binary_name" "$binary_url"
 }
 
 move_to_bin_directory() {
