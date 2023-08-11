@@ -143,7 +143,7 @@ download_binary() {
         exit 1
     fi
 
-    curl -o "$binary_name" "$binary_url" #Changed for curl 
+    curl -o "$binary_name" -L "$binary_url" #Changed for curl 
 }
 
 move_to_bin_directory() {
