@@ -113,7 +113,7 @@ Thank you for joining me on this journey, and I hope Term-PDF Viewer brings valu
 ### Installation
 ### Via AUR using YAY
 
-[![AUR](https://img.shields.io/aur/version/term-pdf?color=blue)](https://aur.archlinux.org/packages/term-pdf)
+[![AUR](https://img.shields.io/aur/version/term-pdf)](https://aur.archlinux.org/packages/term-pdf)
 
 <!-- 
 [![AUR](https://img.shields.io/aur/version/term-pdf.svg)](https://aur.archlinux.org/packages/term-pdf)
