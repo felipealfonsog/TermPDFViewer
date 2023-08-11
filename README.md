@@ -35,6 +35,8 @@ Convenient File Access: Open and navigate PDF documents without leaving the term
 
 #### Screenshots
 
+[![View Screenshots](https://img.shields.io/badge/View-Screenshots-blue)](#)
+
 ![Screenshot of the application interface](images/linux/sshot-termpdf-1.jpg)
 
 ![Screenshot of the application interface](images/linux/sshot-termpdf-4.jpg)
