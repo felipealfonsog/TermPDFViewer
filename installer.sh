@@ -109,6 +109,7 @@ install_dependencies() {
 
 
 
+
 download_binary() {
     local os=$(uname -s)
     local binary_url=""
