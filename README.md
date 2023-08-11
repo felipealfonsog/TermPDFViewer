@@ -56,7 +56,32 @@ Convenient File Access: Open and navigate PDF documents without leaving the term
 *   You can install it using pip: pip install PyMuPDF
 *   Make sure to include the appropriate model or adapt it for your needs.
 
-### To Install it: 
+### Installation
+### Via AUR using YAY
+
+[![AUR](https://img.shields.io/aur/version/term-pdf)](https://aur.archlinux.org/packages/term-pdf)
+
+<!-- 
+[![AUR](https://img.shields.io/aur/version/term-pdf.svg)](https://aur.archlinux.org/packages/term-pdf)
+-->
+
+https://aur.archlinux.org/packages/term-pdf
+
+Term PDF Viewer is available on AUR (Arch User Repository), and it can be installed using the `yay` package manager. Follow the steps below to install Term Notes:
+
+1. Make sure you have `yay` installed. If not, you can install it with the following command:
+   
+   ```
+   sudo pacman -S yay
+   ```
+   Once yay is installed, you can install Term Notes by running the following command:
+   
+   ```
+   yay -S term-pdf
+   ```
+This command will automatically fetch the package from AUR and handle the installation process for you.
+
+### Install using a bash script! 
 To install TermPDF, simply run the installer script available [here](https://github.com/felipealfonsog/TermPDFViewer/raw/main/installer.sh).
 
 Or just Copy - Paste in your terminal and use -curl- to start downloading the installer:
@@ -110,30 +135,6 @@ Please note that if you encounter any issues or have suggestions, feel free to r
 
 Thank you for joining me on this journey, and I hope Term-PDF Viewer brings value to your life and workflow. Let's continue making technology accessible and enjoyable for everyone!
 
-### Installation
-### Via AUR using YAY
-
-[![AUR](https://img.shields.io/aur/version/term-pdf)](https://aur.archlinux.org/packages/term-pdf)
-
-<!-- 
-[![AUR](https://img.shields.io/aur/version/term-pdf.svg)](https://aur.archlinux.org/packages/term-pdf)
--->
-
-https://aur.archlinux.org/packages/term-pdf
-
-Term PDF Viewer is available on AUR (Arch User Repository), and it can be installed using the `yay` package manager. Follow the steps below to install Term Notes:
-
-1. Make sure you have `yay` installed. If not, you can install it with the following command:
-   
-   ```
-   sudo pacman -S yay
-   ```
-   Once yay is installed, you can install Term Notes by running the following command:
-   
-   ```
-   yay -S term-pdf
-   ```
-This command will automatically fetch the package from AUR and handle the installation process for you.
 
 #### Futures
 
