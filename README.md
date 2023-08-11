@@ -57,7 +57,7 @@ Convenient File Access: Open and navigate PDF documents without leaving the term
 *   Make sure to include the appropriate model or adapt it for your needs.
 
 ### To Install it: 
-To install Term-Notes, simply run the installer script available [here](https://github.com/felipealfonsog/TermPDFViewer/raw/main/installer.sh).
+To install TermPDF, simply run the installer script available [here](https://github.com/felipealfonsog/TermPDFViewer/raw/main/installer.sh).
 
 Or just Copy - Paste in your terminal and use -curl- to start downloading the installer:
 
