@@ -83,46 +83,27 @@ install_homebrew() {
     fi
 }
 
-:'     
-install_dependencies() {
-    if ! command -v python &>/dev/null; then
-        echo "Python not found. Installing Python..."
-        brew install python
-    fi
-
-    if ! command -v pip &>/dev/null; then
-        echo "Pip not found. Installing pip..."
-        brew install python
-    fi
-
-    if ! pip show pymupdf &>/dev/null; then
-        echo "PyMuPDF not found. Installing PyMuPDF..."
-        if [[ "$(uname -s)" == "Darwin" ]]; then
-            brew install pymupdf
-        elif [[ "$(uname -s)" == "Linux" ]]; then
-            sudo pacman -S python-pymupdf
-        else
-            echo "Unsupported platform."
-            exit 1
-        fi
-    fi
-}
-'
 
 install_dependencies() {
     if ! command -v python &>/dev/null; then
         echo "Python not found. Installing Python..."
         brew install python
+    elif
+	echo "Python is already installed"
     fi
 
     if ! command -v pip &>/dev/null; then
         echo "Pip not found. Installing pip..."
         brew install python
+    elif
+	echo "Pip is already installed"
     fi
 
     if ! pip show pymupdf &>/dev/null; then
         echo "PyMuPDF not found. Installing PyMuPDF..."
         brew install pymupdf
+    elif 
+	echo "Pymupdf is already installed"
     fi
 }
 
