@@ -83,7 +83,7 @@ This command will automatically fetch the package from AUR and handle the instal
 
 ### Install using a BASH script! 
 
-[![Install TermPDF Viewer](https://img.shields.io/badge/Install-TermPDF%20Viewer-brightgreen)](#Installusingabashscript)
+[![Install TermPDF Viewer](https://img.shields.io/badge/Install-TermPDF%20Viewer-brightgreen)](#)
 
 
 To install TermPDF, simply run the installer script available [here](https://github.com/felipealfonsog/TermPDFViewer/raw/main/installer.sh).
