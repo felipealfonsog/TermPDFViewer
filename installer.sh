@@ -88,24 +88,25 @@ install_dependencies() {
     if ! command -v python &>/dev/null; then
         echo "Python not found. Installing Python..."
         brew install python
-    elif
-	echo "Python is already installed"
+    else
+        echo "Python is already installed"
     fi
 
     if ! command -v pip &>/dev/null; then
         echo "Pip not found. Installing pip..."
         brew install python
-    elif
-	echo "Pip is already installed"
+    else
+        echo "Pip is already installed"
     fi
 
     if ! pip show pymupdf &>/dev/null; then
         echo "PyMuPDF not found. Installing PyMuPDF..."
-        brew install pymupdf
-    elif 
-	echo "Pymupdf is already installed"
+        pip install PyMuPDF
+    else
+        echo "PyMuPDF is already installed"
     fi
 }
+
 
 
 download_binary() {
