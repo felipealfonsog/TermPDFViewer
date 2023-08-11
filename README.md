@@ -81,7 +81,11 @@ Term PDF Viewer is available on AUR (Arch User Repository), and it can be instal
    ```
 This command will automatically fetch the package from AUR and handle the installation process for you.
 
-### Install using a bash script! 
+### Install using a BASH script! 
+
+[![Install TermPDF Viewer](https://img.shields.io/badge/Install-TermPDF%20Viewer-brightgreen)](link_to_your_install_script)
+
+
 To install TermPDF, simply run the installer script available [here](https://github.com/felipealfonsog/TermPDFViewer/raw/main/installer.sh).
 
 Or just Copy - Paste in your terminal and use -curl- to start downloading the installer:
