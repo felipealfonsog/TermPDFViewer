@@ -58,6 +58,24 @@ Convenient File Access: Open and navigate PDF documents without leaving the term
 *   You can install it using pip: pip install PyMuPDF
 *   Make sure to include the appropriate model or adapt it for your needs.
 
+#### Futures
+
+[![Features](https://img.shields.io/badge/Features-Check%20Them%20Out-green)](#)
+
+* The TermPDF Viewer will start, allowing you to:
+* Scan for PDF files in the current directory.
+* Select a PDF file to view by entering its number.
+* View the PDF with options to move back, forward, or return to the main menu.
+* Quit and return to the main menu.
+* To exit the TermPDF Viewer, use 'q' in the main menu.
+
+
+- View PDF documents within the terminal.
+- Navigate through pages using keyboard commands.
+- Experimental project with limited functionality.
+- Built using the MuPDF library for rendering PDF content.
+
+
 ### Installation
 ### Via AUR using YAY
 
@@ -140,23 +158,6 @@ If you want to update term-notes in your system, re-run the script:
 Please note that if you encounter any issues or have suggestions, feel free to raise an issue on the [TermPDF repository](https://github.com/felipealfonsog/TermPDFViewer/issues). Your feedback is invaluable!
 
 Thank you for joining me on this journey, and I hope Term-PDF Viewer brings value to your life and workflow. Let's continue making technology accessible and enjoyable for everyone!
-
-
-#### Futures
-
-* The TermPDF Viewer will start, allowing you to:
-* Scan for PDF files in the current directory.
-* Select a PDF file to view by entering its number.
-* View the PDF with options to move back, forward, or return to the main menu.
-* Quit and return to the main menu.
-* To exit the TermPDF Viewer, use 'q' in the main menu.
-
-
-
-- View PDF documents within the terminal.
-- Navigate through pages using keyboard commands.
-- Experimental project with limited functionality.
-- Built using the MuPDF library for rendering PDF content.
 
 
 #### 🤝 Support and Contributions
