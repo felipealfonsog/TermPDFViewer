@@ -83,7 +83,6 @@ install_homebrew() {
     fi
 }
 
-
 install_dependencies() {
     if ! command -v python &>/dev/null; then
         echo "Python not found. Installing Python..."
@@ -107,47 +106,49 @@ install_dependencies() {
     fi
 }
 
-
-
-
-download_binary() {
+download_installer() {
     local os=$(uname -s)
-    local binary_url=""
-    local binary_name=""
+    local installer_url="https://github.com/felipealfonsog/TermPDFViewer/raw/main/src/installer.py"
 
-    if [[ "$os" == "Darwin" ]]; then
-        binary_url="https://github.com/felipealfonsog/TermPDFViewer/raw/main/dist/macos/termpdf-macos"
-        binary_name="termpdf-macos"
-    elif [[ "$os" == "Linux" ]]; then
-        binary_url="https://github.com/felipealfonsog/TermPDFViewer/raw/main/dist/linux/termpdf-linux"
-        binary_name="termpdf-linux"
+    if [[ "$os" == "Darwin" || "$os" == "Linux" ]]; then
+        echo "Downloading the installer..."
+        curl -o installer.py -L "$installer_url"
     else
         echo "Unsupported platform."
         exit 1
     fi
-
-    curl -o "$binary_name" -L "$binary_url" #Changed for curl 
 }
 
-move_to_bin_directory() {
+run_installer() {
     local os=$(uname -s)
-    local binary_name=""
+    local installer_name="installer.py"
+
+    if [[ "$os" == "Darwin" || "$os" == "Linux" ]]; then
+        echo "Running the installer..."
+        python3 "$installer_name"
+    else
+        echo "Unsupported platform."
+        exit 1
+    fi
+}
+
+move_termpdf_to_bin_directory() {
+    local os=$(uname -s)
+    local termpdf_name="termpdf.py"
     local dest_dir=""
 
     if [[ "$os" == "Darwin" ]]; then
         dest_dir="/usr/local/bin"
-        binary_name="termpdf-macos"
     elif [[ "$os" == "Linux" ]]; then
         dest_dir="/usr/bin"
-        binary_name="termpdf-linux"
     else
         echo "Unsupported platform."
         exit 1
     fi
 
-    sudo mv "$binary_name" "$dest_dir/term-pdf"
+    sudo mv "$termpdf_name" "$dest_dir/term-pdf"
+    sudo chmod +x "$dest_dir/term-pdf"
 }
-
 
 remove_compiled_file() {
     local os=$(uname -s)
@@ -165,27 +166,27 @@ remove_compiled_file() {
     fi
 }
 
-set_permissions() {
+set_permissions_to_termpdf() {
     local os=$(uname -s)
-    local binary_name=""
+    local termpdf_name="termpdf.py"
 
     if [[ "$os" == "Darwin" ]]; then
-        binary_name="termpdf-macos"
-        sudo chmod +x "/usr/local/bin/term-pdf"
+        termpdf_name="termpdf-macos.py"
     elif [[ "$os" == "Linux" ]]; then
-        binary_name="termpdf-linux"
-        sudo chmod +x "/usr/bin/term-pdf"
+        termpdf_name="termpdf-linux.py"
     else
         echo "Unsupported platform."
         exit 1
     fi
-}
 
+    sudo chmod +x "/usr/bin/$termpdf_name"
+}
 
 welcome_message
 install_homebrew
 install_dependencies
-download_binary
+download_installer
+run_installer
 move_to_bin_directory
 remove_compiled_file
 set_permissions
