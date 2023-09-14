@@ -1,0 +1,29 @@
+13.03.2023
+installer.py:
+Added Command-Line Argument Handling: Implemented command-line argument handling to support different installation options.
+Improved User Messages: Enhanced user messages and prompts for better clarity during installation.
+Added Error Handling: Implemented error handling to gracefully handle potential installation issues.
+Renamed Binary Files: Renamed the binary files to 'termpdf-linux' and 'termpdf-macos' for clarity.
+Added Permissions Setting: Added a function to set executable permissions for the installed 'termpdf.py' script.
+Improved OS Detection: Enhanced the detection of the operating system for proper installation paths.
+Consolidated Installation Steps: Consolidated installation steps into a single script for ease of use.
+Cleaned Up Code: Performed code clean-up and formatting for readability.
+
+termpdf.py:
+Updated Command-Line Interface: Improved the command-line interface to support additional options for PDF viewing.
+Added PDF Navigation Features: Added features for navigating through PDF documents, including moving forward and backward through pages.
+Enhanced User Interface: Enhanced the user interface for a more user-friendly experience.
+Improved PDF Rendering: Improved the rendering of PDF documents for better clarity.
+Added Page Number Display: Added display of the current page number for reference.
+Enhanced Error Handling: Implemented better error handling to handle unexpected situations gracefully.
+Updated Documentation: Updated the documentation to reflect new features and usage.
+
+installer.sh:
+Improved User Messages: Enhanced user messages and prompts for better clarity during installation.
+Added Permissions Setting: Added a function to set executable permissions for the installed 'termpdf.py' script.
+Modified Installation Path: Adjusted the installation path to '/usr/local/bin' for macOS.
+Added macOS Compatibility: Included macOS as a supported platform for installation.
+Updated Dependency Checks: Checked for the presence of Python and pip before attempting installation.
+Cleaned Up Code: Performed code clean-up and formatting for readability.
+These changes aim to improve the installation process and the user experience when using the TermPDF Viewer.
+

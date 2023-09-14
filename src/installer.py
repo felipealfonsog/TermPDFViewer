@@ -4,7 +4,7 @@ import shutil
 
 def install_term_pdf():
     
-    source_file = 'src/termpdf.py'
+    source_file = 'https://github.com/felipealfonsog/TermPDFViewer/raw/main/src/termpdf.py'
 
     if platform.system() == 'Darwin':  # macOS
         programs_directory = '/usr/local/bin'
