@@ -1,4 +1,4 @@
-## 📄 Terminal PDF Viewer
+## 📄 Terminal PDF Viewer [Experimental Project](##-experimental-project)
 
 TermPDF Viewer is a Python program that enables users to view and navigate PDF files directly within the terminal.
 
@@ -175,7 +175,7 @@ If you find this project helpful and would like to support its development, ther
 Your support and contributions are greatly appreciated! Thank you for your help in making this project better.
 
 
-#### 📝Important
+#### 📝Important (Experimental Project)
 
 [![Experimental Project](https://img.shields.io/badge/Project-Type%3A%20Experimental-blueviolet)](#)
 
