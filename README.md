@@ -1,4 +1,4 @@
-## 📄 Terminal PDF Viewer
+### 📄 Terminal PDF Viewer [(Experimental Project)](#important-experimental-project)
 
 TermPDF Viewer is a Python program that enables users to view and navigate PDF files directly within the terminal.
 
@@ -160,6 +160,14 @@ Please note that if you encounter any issues or have suggestions, feel free to r
 Thank you for joining me on this journey, and I hope Term-PDF Viewer brings value to your life and workflow. Let's continue making technology accessible and enjoyable for everyone!
 
 
+#### 📝Important (Experimental Project)
+
+[![Experimental Project](https://img.shields.io/badge/Project-Type%3A%20Experimental-blueviolet)](#)
+
+This is an experimental project aimed at bringing a PDF viewer or reader to the terminal environment. The Terminal PDF Viewer leverages the capabilities of the MuPDF library to enable users to view PDF documents directly within the terminal.
+
+<p>This project is still in its experimental stage and may have limitations in terms of features and compatibility. Use at your own discretion.</p>
+
 #### 🤝 Support and Contributions
 
 If you find this project helpful and would like to support its development, there are several ways you can contribute:
@@ -173,15 +181,6 @@ If you find this project helpful and would like to support its development, ther
 [![GitHub Sponsors](https://img.shields.io/badge/Sponsor%20me%20on-GitHub-%23EA4AAA?style=flat-square&logo=github-sponsors&logoColor=white)](https://github.com/sponsors/felipealfonsog)
 
 Your support and contributions are greatly appreciated! Thank you for your help in making this project better.
-
-
-#### 📝Important
-
-[![Experimental Project](https://img.shields.io/badge/Project-Type%3A%20Experimental-blueviolet)](#)
-
-This is an experimental project aimed at bringing a PDF viewer or reader to the terminal environment. The Terminal PDF Viewer leverages the capabilities of the MuPDF library to enable users to view PDF documents directly within the terminal.
-
-This project is still in its experimental (v.0.0.2 - not yet as a 1.0.0 version) stage and may have limitations in terms of features and compatibility. Use at your own discretion.
 
 #### 📄 License
 
