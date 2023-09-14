@@ -20,3 +20,4 @@ localpycs/
 *.pdf
 *.tar.gz
 *.pyz
+*.sh
