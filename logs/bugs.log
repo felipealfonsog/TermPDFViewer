@@ -1,0 +1,9 @@
+13.09.2023
+
+/usr/bin/term-pdf: line 1: $'\247\r\r': command not found
+/usr/bin/term-pdf: line 73: unexpected EOF while looking for matching `''
+/usr/bin/term-pdf: line 84: syntax error: unexpected end of file
+[felipe@SDFCSC term-pdf]$
+
+--
+
