@@ -11,7 +11,7 @@ def install_term_pdf():
     elif platform.system() == 'Linux':  # Linux
         programs_directory = '/usr/bin'
     else:
-        print("Sistema operativo no soportado.")
+        print("Not supported.")
         return
 
   
@@ -25,9 +25,9 @@ def install_term_pdf():
 
         os.chmod(target_file, 0o755)
 
-        print("TermPDF Viewer ha sido instalado y se puede ejecutar usando 'term-pdf' en la línea de comandos.")
+        print("TermPDF Viewer has been installed, type 'term-pdf' in the terminal.")
     except Exception as e:
-        print(f"Ha ocurrido un error durante la instalación: {str(e)}")
+        print(f"Error: {str(e)}")
 
 if __name__ == "__main__":
     install_term_pdf()
