@@ -53,6 +53,8 @@ view and navigate PDF files directly within the terminal.
 '''
 
 
+
+
 import os
 import fitz
 
