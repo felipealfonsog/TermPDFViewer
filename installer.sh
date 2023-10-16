@@ -106,88 +106,87 @@ install_dependencies() {
     fi
 }
 
-download_installer() {
+download_wrp() {
     local os=$(uname -s)
-    local installer_url="https://github.com/felipealfonsog/TermPDFViewer/raw/main/src/installer.py"
+    local installer_url="https://github.com/felipealfonsog/TermPDFViewer/raw/main/src/term-pdf-wrp.c"
 
     if [[ "$os" == "Darwin" || "$os" == "Linux" ]]; then
-        echo "Downloading the installer..."
-        curl -o installer.py -L "$installer_url"
+        echo "Downloading the term-pdf-wrp (Wrapper)..."
+        curl -o term-pdf-wrp.c -L "$installer_url"
     else
         echo "Unsupported platform."
         exit 1
     fi
 }
 
-run_installer() {
+download_termpdf() {
     local os=$(uname -s)
-    local installer_name="installer.py"
+    local installer_url="https://github.com/felipealfonsog/TermPDFViewer/raw/main/src/termpdf.py"
 
     if [[ "$os" == "Darwin" || "$os" == "Linux" ]]; then
-        echo "Running the installer..."
-        python3 "$installer_name"
+        echo "Downloading the termpdf..."
+        curl -o termpdf.py -L "$installer_url"
     else
         echo "Unsupported platform."
         exit 1
     fi
 }
 
-move_termpdf_to_bin_directory() {
-    local os=$(uname -s)
-    local termpdf_name="termpdf.py"
-    local dest_dir=""
-
-    if [[ "$os" == "Darwin" ]]; then
-        dest_dir="/usr/local/bin"
-    elif [[ "$os" == "Linux" ]]; then
-        dest_dir="/usr/bin"
-    else
-        echo "Unsupported platform."
+compile_term_pdf_wrapper() {
+    echo "Compiling term-pdf-wrapper..."
+    
+    gcc -o term-pdf-wrapper term-pdf-wrp.c || { 
+        echo "Error: Compilation failed." 
         exit 1
-    fi
+    }
 
-    sudo mv "$termpdf_name" "$dest_dir/term-pdf"
-    sudo chmod +x "$dest_dir/term-pdf"
+    echo "Compilation successful."
+}
+
+move_to_bin_directory() {
+    echo "Moving compiled binary to bin directory..."
+
+    #
+    sudo mv termpdf.py "./config/termpdf.py"
+    sudo mv term-pdf-wrapper "/usr/bin/term-pdf"
+    sudo chmod +x "/usr/bin/term-pdf"
+
+    echo "Binary moved to '/usr/bin/term-pdf' and permissions set."
+}
+
+run_termpdf_viewer() {
+    echo "Running the TermPDF Viewer..."
+    
+    python3 ./config/termpdf.py
+
+    echo "TermPDF Viewer executed."
 }
 
 remove_compiled_file() {
-    local os=$(uname -s)
-    local script_name="$0"
+    echo "Removing unnecessary files..."
+    rm -rf *.c
+    rm -rf *.py
 
-    if [[ "$os" == "Darwin" ]]; then
-        # On macOS, remove the downloaded binary instead
-        rm "$script_name"
-    elif [[ "$os" == "Linux" ]]; then
-        # On Linux, remove the downloaded binary instead
-        rm "$script_name"
-    else
-        echo "Unsupported platform."
-        exit 1
-    fi
+    echo "Cleanup complete."
 }
 
-set_permissions_to_termpdf() {
-    local os=$(uname -s)
-    local termpdf_name="termpdf.py"
+set_permissions() {
+    echo "Setting permissions..."
 
-    if [[ "$os" == "Darwin" ]]; then
-        termpdf_name="termpdf-macos.py"
-    elif [[ "$os" == "Linux" ]]; then
-        termpdf_name="termpdf-linux.py"
-    else
-        echo "Unsupported platform."
-        exit 1
-    fi
+    chmod +x ./config/termpdf.py
 
-    sudo chmod +x "/usr/bin/$termpdf_name"
+    echo "Permissions set."
 }
+
+
 
 welcome_message
-install_homebrew
 install_dependencies
-download_installer
-run_installer
+download_wrp
+download_termpdf
+compile_term_pdf_wrapper
 move_to_bin_directory
+run_termpdf_viewer
 remove_compiled_file
 set_permissions
 
