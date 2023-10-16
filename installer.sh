@@ -173,7 +173,7 @@ remove_compiled_file() {
 set_permissions() {
     echo "Setting permissions..."
 
-    chmod 755 ./config/termpdf.py
+    # chmod 755 ./config/termpdf.py
 
     echo "Permissions set."
 }
@@ -186,7 +186,7 @@ download_wrp
 download_termpdf
 compile_term_pdf_wrapper
 move_to_bin_directory
-run_termpdf_viewer
+#run_termpdf_viewer
 remove_compiled_file
 set_permissions
 
