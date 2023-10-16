@@ -164,8 +164,8 @@ run_termpdf_viewer() {
 
 remove_compiled_file() {
     echo "Removing unnecessary files..."
-    rm -rf *.c
-    rm -rf *.py
+    # rm -rf *.c
+    # rm -rf *.py
 
     echo "Cleanup complete."
 }
