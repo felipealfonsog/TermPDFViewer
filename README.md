@@ -8,10 +8,10 @@ TermPDF Viewer is a command-line utility built in Python that empowers users to 
 
 The program offers a menu-driven interface allowing users to scan and list PDF files in a directory, choose a file to view by entering its corresponding number, and then navigate through its pages. Additionally, the program offers convenient options to move forward, go back, or quit the PDF viewing session, ensuring a seamless and efficient document viewing experience directly within the terminal.
 
-### How to Use:
+#### How to Use:
 After installation, type 'term-pdf' in the terminal and simply position the cursor within the terminal directory of your choice. TermPDF Viewer will scan for PDF files within the specified folder, granting you instant access to view and open these files seamlessly.
 
-### Key Features:
+#### Key Features:
 Effortless Installation: Get started quickly by following the simple installation process.
 Seamless PDF Scanning: Place the cursor in any terminal directory to initiate automatic scanning for PDF files.
 Intuitive Navigation: Easily browse and select PDF files to view within the terminal interface.
@@ -51,7 +51,7 @@ Convenient File Access: Open and navigate PDF documents without leaving the term
 ![Screenshot of the application interface](images/mac/sshot-termpdf-1.png)
 -->
 
-### Prerequisites:
+#### Prerequisites:
 
 * Python 3.x: The program is written in Python and requires a Python 3.x interpreter to run.
 * PyMuPDF: A Python binding for the MuPDF library, used to handle PDF file rendering and interaction.
@@ -76,8 +76,8 @@ Convenient File Access: Open and navigate PDF documents without leaving the term
 - Built using the MuPDF library for rendering PDF content.
 
 
-### Installation
-### Via AUR using YAY
+#### Installation
+#### Via AUR using YAY
 
 [![AUR](https://img.shields.io/aur/version/term-pdf)](https://aur.archlinux.org/packages/term-pdf)
 
@@ -101,7 +101,7 @@ Term PDF Viewer is available on AUR (Arch User Repository), and it can be instal
    ```
 This command will automatically fetch the package from AUR and handle the installation process for you.
 
-### Install using a BASH script! 
+#### Install using a BASH script! 
 
 [![Install TermPDF Viewer](https://img.shields.io/badge/Install-TermPDF%20Viewer-brightgreen)](#)
 
