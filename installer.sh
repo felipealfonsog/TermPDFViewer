@@ -186,8 +186,8 @@ download_wrp
 download_termpdf
 compile_term_pdf_wrapper
 move_to_bin_directory
-#run_termpdf_viewer
+# run_termpdf_viewer
 remove_compiled_file
-set_permissions
+# set_permissions
 
 echo "TermPDF Viewer has been successfully installed as 'term-pdf' command!"
