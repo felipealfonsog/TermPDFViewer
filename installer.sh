@@ -173,7 +173,7 @@ remove_compiled_file() {
 set_permissions() {
     echo "Setting permissions..."
 
-    chmod +x ./config/termpdf.py
+    chmod 755 ./config/termpdf.py
 
     echo "Permissions set."
 }
