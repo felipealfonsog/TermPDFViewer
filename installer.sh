@@ -147,7 +147,7 @@ move_to_bin_directory() {
     echo "Moving compiled binary to bin directory..."
 
     #
-    sudo mv termpdf.py "./config/termpdf.py"
+    sudo mv termpdf.py "./config"
     sudo mv term-pdf-wrapper "/usr/bin/term-pdf"
     sudo chmod +x "/usr/bin/term-pdf"
 
@@ -164,8 +164,8 @@ run_termpdf_viewer() {
 
 remove_compiled_file() {
     echo "Removing unnecessary files..."
-    # rm -rf *.c
-    # rm -rf *.py
+    rm -rf *.c
+    rm -rf *.py
 
     echo "Cleanup complete."
 }
