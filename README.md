@@ -12,7 +12,7 @@ The program offers a menu-driven interface allowing users to scan and list PDF f
 <sub>* This is currently an experimental phase where the primary focus is on making the system functional and establishing a practical and logical pathway that aligns with both my vision and the project's goals. It might contain errors, bugs, etc. Many other non-core elements of the project are considered secondary.</sub>
 
 
-##### Important Collaborator
+##### Important Collaboration 🚀
 A special thanks to [@Pardesi_Cat](https://github.com/PardesiCat) for their contributions, including testing, offering valuable ideas, and demonstrating appreciation and respect for both myself and the project.
 
 If you're interested in becoming a collaborator, please visit the [Collaboration](#-support-and-contributions) section.
