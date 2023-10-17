@@ -10,7 +10,13 @@ TermPDF Viewer is a command-line utility built in Python that empowers users to 
 The program offers a menu-driven interface allowing users to scan and list PDF files in a directory, choose a file to view by entering its corresponding number, and then navigate through its pages. Additionally, the program offers convenient options to move forward, go back, or quit the PDF viewing session, ensuring a seamless and efficient document viewing experience directly within the terminal.
 
 <sub>* This is currently an experimental phase where the primary focus is on making the system functional and establishing a practical and logical pathway that aligns with both my vision and the project's goals. It might contain errors, bugs, etc. Many other non-core elements of the project are considered secondary.</sub>
-  
+
+##### Important Collaborator
+A special thanks to **@Pardesi_Cat** for their contributions, including testing, offering valuable ideas, and demonstrating appreciation and respect for both myself and the project.
+
+If you're interested in becoming a collaborator, please visit the [Collaboration](#support-and-contributions) section.
+
+
 #### How to Use:
 After installation, type 'term-pdf' in the terminal and simply position the cursor within the terminal directory of your choice. TermPDF Viewer will scan for PDF files within the specified folder, granting you instant access to view and open these files seamlessly.
 
@@ -183,7 +189,7 @@ If you find this project helpful and would like to support its development, ther
 [![PayPal](https://img.shields.io/badge/Donate%20with-PayPal-00457C?style=flat-square&logo=paypal&logoColor=white)](https://www.paypal.com/felipealfonsog)
 [![GitHub Sponsors](https://img.shields.io/badge/Sponsor%20me%20on-GitHub-%23EA4AAA?style=flat-square&logo=github-sponsors&logoColor=white)](https://github.com/sponsors/felipealfonsog)
 
-Your support and contributions are greatly appreciated! Thank you for your help in making this project better.
+Your support and contributions are greatly appreciated! Thank you for your help in making this project better. If you need to mail me, this is the way: f.alfonso@res-ear.ch (I'm Felipe, the Computer Science Engineer behind this idea. Cheers!
 
 #### 📄 License
 
