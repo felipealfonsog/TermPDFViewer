@@ -11,13 +11,11 @@ The program offers a menu-driven interface allowing users to scan and list PDF f
 
 <sub>* This is currently an experimental phase where the primary focus is on making the system functional and establishing a practical and logical pathway that aligns with both my vision and the project's goals. It might contain errors, bugs, etc. Many other non-core elements of the project are considered secondary.</sub>
 
-#
 
 ##### Important Collaborator
 A special thanks to [**@Pardesi_Cat**](https://github.com/PardesiCat) for their contributions, including testing, offering valuable ideas, and demonstrating appreciation and respect for both myself and the project.
-If you're interested in becoming a collaborator, please visit the [Collaboration](#support-and-contributions) section.
+If you're interested in becoming a collaborator, please visit the [Collaboration](#-support-and-contributions) section.
 
-#
 
 #### How to Use:
 After installation, type 'term-pdf' in the terminal and simply position the cursor within the terminal directory of your choice. TermPDF Viewer will scan for PDF files within the specified folder, granting you instant access to view and open these files seamlessly.
