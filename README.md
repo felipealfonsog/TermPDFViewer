@@ -13,7 +13,7 @@ The program offers a menu-driven interface allowing users to scan and list PDF f
 
 
 ##### Important Collaborator
-A special thanks to [**@Pardesi_Cat**](https://github.com/PardesiCat) for their contributions, including testing, offering valuable ideas, and demonstrating appreciation and respect for both myself and the project.
+A special thanks to [@Pardesi_Cat](https://github.com/PardesiCat) for their contributions, including testing, offering valuable ideas, and demonstrating appreciation and respect for both myself and the project.
 If you're interested in becoming a collaborator, please visit the [Collaboration](#-support-and-contributions) section.
 
 
