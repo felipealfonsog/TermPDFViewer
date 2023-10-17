@@ -95,7 +95,9 @@ Convenient File Access: Open and navigate PDF documents without leaving the term
 [![AUR](https://img.shields.io/aur/version/term-pdf.svg)](https://aur.archlinux.org/packages/term-pdf)
 -->
 
+<!-- 
 https://aur.archlinux.org/packages/term-pdf
+-->
 
 Term PDF Viewer is available on AUR (Arch User Repository), and it can be installed using the `yay` package manager. Follow the steps below to install Term Notes:
 
@@ -104,7 +106,7 @@ Term PDF Viewer is available on AUR (Arch User Repository), and it can be instal
    ```
    sudo pacman -S yay
    ```
-   Once yay is installed, you can install Term Notes by running the following command:
+   Once yay is installed, you can install Term PDF by running the following command:
    
    ```
    yay -S term-pdf
