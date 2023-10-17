@@ -8,7 +8,7 @@ url="https://github.com/felipealfonsog/TermPDFViewer"
 license=('MIT')
 depends=('python-pip' 'python-pymupdf')
 source=("https://github.com/felipealfonsog/TermPDFViewer/archive/refs/tags/v.${pkgver}.tar.gz")
-sha256sums=('ff15c7a79a4b13eb067e28408e18c7333b609b7d76f2bb3039072df9125688ab')
+sha256sums=('05d652e374019b617842c77d435f58c92da58529e033d3d29b254820c3fa03fb')
 
 prepare() {
   tar xf "v.${pkgver}.tar.gz" -C "$srcdir" --strip-components=1
