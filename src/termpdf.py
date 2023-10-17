@@ -36,7 +36,7 @@ view and navigate PDF files directly within the terminal.
 * Run the TermPDF Viewer:
 * python termpdf.py
 
-* The TermPDF Viewer will start, allowing you to:
+* The TermPDF Viewer will start, allowing you to: 
 * Scan for PDF files in the current directory.
 * Select a PDF file to view by entering its number.
 * View the PDF with options to move back, forward, or return to the main menu.
