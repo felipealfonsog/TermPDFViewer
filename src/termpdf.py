@@ -62,6 +62,7 @@ def scan_pdf_files():
     pdf_files = [file for file in os.listdir('.') if file.lower().endswith('.pdf')]
     return pdf_files
 
+'''
 def display_pdf(pdf_filename):
     doc = fitz.open(pdf_filename)
     total_pages = doc.page_count
@@ -81,6 +82,36 @@ def display_pdf(pdf_filename):
             break
 
     doc.close()
+'''
+    
+def display_pdf(pdf_filename):
+    try:
+        doc = fitz.open(pdf_filename)
+        total_pages = doc.page_count
+        current_page = 0
+
+        while True:
+            if not (0 <= current_page < total_pages):
+                print("Invalid page number.")
+                break
+
+            page = doc[current_page]
+            print(f'Page {current_page + 1} / {total_pages}')
+            print(page.get_text())
+
+            choice = input("Enter 'b' to go back, 'f' to go forward, 'q' to quit: ")
+            if choice == 'b':
+                current_page = max(current_page - 1, 0)
+            elif choice == 'f':
+                current_page = min(current_page + 1, total_pages - 1)
+            elif choice == 'q':
+                break
+    except Exception as e:
+        print(f"Error: {e}")
+    finally:
+        if 'doc' in locals():
+            doc.close()
+
 
 def main():
     
