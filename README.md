@@ -1,4 +1,4 @@
-#### 📄 Terminal PDF Viewer [(Experimental Project)](#important-experimental-project) (Approaching a more stable release!)
+#### 📄 Terminal PDF Viewer [(Experimental Project)](#important-experimental-project)* (Approaching a more stable release!)
 
 TermPDF Viewer is a Python program that enables users to view and navigate PDF files directly within the terminal.
 
@@ -8,6 +8,8 @@ TermPDF Viewer is a command-line utility built in Python that empowers users to 
 
 The program offers a menu-driven interface allowing users to scan and list PDF files in a directory, choose a file to view by entering its corresponding number, and then navigate through its pages. Additionally, the program offers convenient options to move forward, go back, or quit the PDF viewing session, ensuring a seamless and efficient document viewing experience directly within the terminal.
 
+<sub>* This is currently an experimental phase where the primary focus is on making the system functional and establishing a practical and logical pathway that aligns with both my vision and the project's goals.</sub>
+  
 #### How to Use:
 After installation, type 'term-pdf' in the terminal and simply position the cursor within the terminal directory of your choice. TermPDF Viewer will scan for PDF files within the specified folder, granting you instant access to view and open these files seamlessly.
 
