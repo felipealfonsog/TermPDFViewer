@@ -147,7 +147,9 @@ move_to_bin_directory() {
     echo "Moving compiled binary to bin directory..."
 
     #
-    sudo mv termpdf.py "/home/felipe/.config"
+    #sudo mv termpdf.py "/home/felipe/.config"
+    # /usr/local/bin/
+    sudo mv termpdf.py "/usr/local/bin"
     sudo mv term-pdf-wrapper "/usr/bin/term-pdf"
     sudo chmod +x "/usr/bin/term-pdf"
 
@@ -157,8 +159,8 @@ move_to_bin_directory() {
 run_termpdf_viewer() {
     echo "Running the TermPDF Viewer..."
     
-    python3 /home/felipe/.config/termpdf.py
-
+    #python3 /home/felipe/.config/termpdf.py 
+    python3 /usr/local/bin/termpdf.py
     echo "TermPDF Viewer executed."
 }
 
