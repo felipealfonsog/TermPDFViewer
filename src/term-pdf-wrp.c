@@ -56,15 +56,18 @@ view and navigate PDF files directly within the terminal.
 
 // pkgver=0.0.3.4
 
-/*
+
 #include <stdio.h>
 #include <stdlib.h>
 
 int main() {
-    system("python ./TermPDFViewer-v.0.0.3.4/src/termpdf.py");
+    system("python $HOME/.config/termpdf.py");
     return 0;
 }
-*/
+
+
+
+/*
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -80,3 +83,4 @@ int main() {
 
     return 0;
 }
+*/
