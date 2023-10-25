@@ -32,8 +32,7 @@ view and navigate PDF files directly within the terminal.
 
 * Install PyMuPDF library (if not already installed):
   pip install PyMuPDF
-  pip install keyboard
-  
+
 * Run the TermPDF Viewer:
 * python termpdf.py
 
@@ -58,20 +57,33 @@ view and navigate PDF files directly within the terminal.
 
 import os
 import fitz
-import platform
-
-# Use msvcrt only on Windows
-if platform.system() == 'Windows':
-    import msvcrt
-    getch = msvcrt.getch
-else:
-    import keyboard
-    getch = keyboard.read_event
 
 def scan_pdf_files():
     pdf_files = [file for file in os.listdir('.') if file.lower().endswith('.pdf')]
     return pdf_files
 
+'''
+def display_pdf(pdf_filename):
+    doc = fitz.open(pdf_filename)
+    total_pages = doc.page_count
+    current_page = 0
+    
+    while True:
+        page = doc[current_page]
+        print(f'Page {current_page + 1} / {total_pages}')
+        print(page.get_text())
+        
+        choice = input("Enter 'b' to go back, 'f' to go forward, 'q' to quit: ")
+        if choice == 'b':
+            current_page = max(current_page - 1, 0)
+        elif choice == 'f':
+            current_page = min(current_page + 1, total_pages - 1)
+        elif choice == 'q':
+            break
+
+    doc.close()
+'''
+    
 def display_pdf(pdf_filename):
     try:
         doc = fitz.open(pdf_filename)
@@ -87,14 +99,7 @@ def display_pdf(pdf_filename):
             print(f'Page {current_page + 1} / {total_pages}')
             print(page.get_text())
 
-            print("Press 'b' to go back, 'f' to go forward, 'q' to quit: ", end='', flush=True)
-            
-            event = getch()
-            if platform.system() == 'Windows':
-                choice = event.decode('utf-8').lower()
-            else:
-                choice = event.name
-
+            choice = input("Enter 'b' to go back, 'f' to go forward, 'q' to quit: ")
             if choice == 'b':
                 current_page = max(current_page - 1, 0)
             elif choice == 'f':
@@ -107,11 +112,26 @@ def display_pdf(pdf_filename):
         if 'doc' in locals():
             doc.close()
 
+
 def main():
-    print("""
-    ... (Your welcome message)
-    - Additionally, you can use the left arrow key to go back and the right arrow key to go forward. Note: Make sure to run the script in a terminal that supports arrow key input, and on some platforms, arrow keys might not work in certain terminal environments.
-    """)
+    
+    print("\n")
+    print("▀▀█▀▀ █▀▀ █▀▀█ █▀▄▀█ ▒█▀▀█ ▒█▀▀▄ ▒█▀▀▀ 　 ▒█░░▒█ ░▀░ █▀▀ █░░░█ █▀▀ █▀▀█")
+    print("░▒█░░ █▀▀ █▄▄▀ █░▀░█ ▒█▄▄█ ▒█░▒█ ▒█▀▀▀ 　 ░▒█▒█░ ▀█▀ █▀▀ █▄█▄█ █▀▀ █▄▄▀")
+    print("░▒█░░ ▀▀▀ ▀░▀▀ ▀░░░▀ ▒█░░░ ▒█▄▄▀ ▒█░░░ 　 ░░▀▄▀░ ▀▀▀ ▀▀▀ ░▀░▀░ ▀▀▀ ▀░▀▀")
+    print("-------------------------------------------------------------------------")
+    print("TermPDF Viewer - view and navigate PDF files within the terminal.")
+    print("-------------------------------------------------------------------------")
+    print("*  Simple: TermPDF Viewer is a Python program that enables users to ")
+    print("*  view and navigate PDF files directly within the terminal.")
+    print("-------------------------------------------------------------------------")
+    print("\n\n"
+      "╭────────────-----────── TERMS OF USE ──────────----------───╮\n"
+      "│  This software is licensed under the MIT License.          │\n"
+      "│  By Felipe Alfonso González - github.com/felipealfonsog    │\n"
+      "│  Computer Science Engineer - Email: f.alfonso@res-ear.ch   │\n"
+      "╰───────────────────────────────────────────────---------────╯\n"
+      "\n")
 
     print("Welcome to the TermPDF Viewer!")
     
