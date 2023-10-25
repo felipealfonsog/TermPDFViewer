@@ -140,9 +140,9 @@ def main(stdscr):
         print("2. View scanned PDF files")
         print("3. Quit")
         
-        choice = input("Enter the number of your choice: ")
-        
-        if choice == '1':
+        choice = stdscr.getch()
+
+        if choice == ord('1'):
             pdf_files = scan_pdf_files()
             if not pdf_files:
                 print("No PDF files found in the current directory.")
@@ -151,7 +151,7 @@ def main(stdscr):
                 for i, pdf_file in enumerate(pdf_files, start=1):
                     print(f"{i}. {pdf_file}")
         
-        elif choice == '2':
+        elif choice == ord('2'):
             pdf_files = scan_pdf_files()
             if not pdf_files:
                 print("No PDF files found in the current directory.")
@@ -172,7 +172,7 @@ def main(stdscr):
                 except ValueError:
                     print("Invalid input. Please enter a valid number.")
         
-        elif choice == '3':
+        elif choice == ord('3'):
             print("Goodbye!")
             break
         
@@ -181,5 +181,4 @@ def main(stdscr):
 
 if __name__ == '__main__':
     curses.wrapper(main)
-
 
