@@ -78,7 +78,7 @@ Convenient File Access: Open and navigate PDF documents without leaving the term
 * View the PDF with options to move back, forward, or return to the main menu.
 * Quit and return to the main menu.
 * To exit the TermPDF Viewer, use 'q' in the main menu.
-
+* ***NOw - Search a term inside the PDF in the terminal!, use 's' in the main menu.***
 
 - View PDF documents within the terminal.
 - Navigate through pages using keyboard commands.
