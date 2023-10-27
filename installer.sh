@@ -104,6 +104,14 @@ install_dependencies() {
     else
         echo "PyMuPDF is already installed"
     fi
+
+    if ! pip show termcolor &>/dev/null; then
+        echo "Termcolor library not found. Installing Termcolor..."
+        pip install termcolor
+    else
+        echo "Termcolor is already installed"
+    fi
+
 }
 
 download_wrp() {
