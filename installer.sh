@@ -147,7 +147,7 @@ compile_term_pdf_wrapper() {
         echo "Error: Compilation failed." 
         exit 1
     }
-
+    sudo chmod +x term-pdf-wrapper
     echo "Compilation successful."
 }
 
@@ -163,7 +163,8 @@ move_to_bin_directory() {
     # sudo rm /usr/bin/term-pdf
     sudo mv term-pdf-wrapper "/usr/bin/term-pdf"
     sudo chmod +x "/usr/bin/term-pdf"
-
+    sudo chmod +x "/usr/local/bin/termpdf.py"
+    
     echo "Binary moved to '/usr/bin/term-pdf' and permissions set."
 }
 
