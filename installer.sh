@@ -157,10 +157,10 @@ move_to_bin_directory() {
     #
     #sudo mv termpdf.py "/home/felipe/.config"
     # /usr/local/bin/
-    sudo rm /usr/bin/term-pdf.py
-    sudo rm  /usr/local/bin/termpdf.py
+    # sudo rm /usr/bin/term-pdf.py
+    # sudo rm  /usr/local/bin/termpdf.py
     sudo mv termpdf.py "/usr/local/bin"
-    sudo rm /usr/bin/term-pdf
+    # sudo rm /usr/bin/term-pdf
     sudo mv term-pdf-wrapper "/usr/bin/term-pdf"
     sudo chmod +x "/usr/bin/term-pdf"
 
@@ -178,8 +178,8 @@ run_termpdf_viewer() {
 remove_compiled_file() {
     echo "Removing unnecessary files..."
     rm -rf *.c
-    rm -rf *.py
-
+    rm -rf *.py 
+    rm installer.sh
     echo "Cleanup complete."
 }
 
