@@ -153,21 +153,18 @@ compile_term_pdf_wrapper() {
 
 move_to_bin_directory() {
     echo "Moving compiled binary to bin directory..."
+ 
 
-    #
-    #sudo mv termpdf.py "/home/felipe/.config"
-    # /usr/local/bin/
-    # sudo rm /usr/bin/term-pdf.py
-    # sudo rm  /usr/local/bin/termpdf.py
     sudo mv termpdf.py "/usr/local/bin"
-    sudo rm /usr/bin/term-pdf
-    sudo mv term-pdf-wrapper term-pdf
-    sudo mv term-pdf "/usr/bin/"
-    sudo chmod +x "/usr/bin/term-pdf"
+    sudo mv term-pdf-wrapper "/usr/local/bin/term-pdf"
+ 
+ 
     sudo chmod +x "/usr/local/bin/termpdf.py"
+    sudo chmod +x "/usr/local/bin/term-pdf"
 
-    echo "Binary moved to '/usr/bin/term-pdf' and permissions set."
+    echo "Binary moved to '/usr/local/bin' and permissions set."
 }
+
 
 run_termpdf_viewer() {
     echo "Running the TermPDF Viewer..."
