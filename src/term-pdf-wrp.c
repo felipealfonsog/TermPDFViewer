@@ -62,7 +62,8 @@ view and navigate PDF files directly within the terminal.
 
 int main() {
    // system("python $HOME/.config/termpdf.py");
-    system("python /usr/local/bin/termpdf.py");
+   // system("python /usr/local/bin/termpdf.py");
+    system("python3 /usr/local/bin/termpdf.py");
     
     return 0;
 }
