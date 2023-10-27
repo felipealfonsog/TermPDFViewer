@@ -95,14 +95,22 @@ def display_pdf(pdf_filename):
                 keyword = input("Enter the keyword to search: ").lower()
                 found = False
 
-                for page_num in range(total_pages):
+                for page_num in range(current_page, total_pages):
                     text = doc[page_num].get_text().lower()
                     if keyword in text:
                         display_current_page(doc, page_num, total_pages, keyword)
                         found = True
+                        break
 
                 if not found:
                     print(f"No matches found for '{keyword}'.")
+                else:
+                    while True:
+                        response = input("Press Enter to continue searching or press Esc to exit search: ")
+                        if response.lower() == '':
+                            break
+                        elif response.lower() == 'esc':
+                            return
 
     except Exception as e:
         print(f"Error: {e}")
