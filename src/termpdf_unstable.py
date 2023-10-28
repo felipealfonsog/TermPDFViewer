@@ -105,19 +105,21 @@ def display_pdf(pdf_filename):
                 if not found:
                     print(f"No matches found for '{keyword}'.")
                 else:
-                    while True:
-                        response = input("Press Enter to continue searching or press Esc to exit search: ")
-                        if response.lower() == '':
-                            break
-                        elif response.lower() == 'esc':
-                            return
+                    print("Search completed. Press 'q' to exit, 'Enter' to continue searching, or any other key to go back to the previous page.")
+
+                    response = input()
+                    if response.lower() == 'q':
+                        return
+                    elif response == '':
+                        continue
+                    else:
+                        print("Invalid choice. Going back to the previous page.")
 
     except Exception as e:
         print(f"Error: {e}")
     finally:
         if 'doc' in locals():
             doc.close()
-
 
 
 
