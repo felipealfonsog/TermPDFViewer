@@ -95,25 +95,17 @@ def display_pdf(pdf_filename):
                 keyword = input("Enter the keyword to search: ").lower()
                 found = False
 
-                for page_num in range(current_page, total_pages):
+                for page_num in range(total_pages):
                     text = doc[page_num].get_text().lower()
                     if keyword in text:
                         display_current_page(doc, page_num, total_pages, keyword)
                         found = True
-                        break
 
                 if not found:
-                    print(f"No matches found for '{keyword}'.")
-                else:
-                    print("Search completed. Press 'q' to exit, 'Enter' to continue searching, or any other key to go back to the previous page.")
-
-                    response = input()
-                    if response.lower() == 'q':
-                        return
-                    elif response == '':
-                        continue
-                    else:
-                        print("Invalid choice. Going back to the previous page.")
+                    print(f"No more matches found for '{keyword}'. Press 'q' to exit the search and return to the page where the search began. Press 'enter' to continue the search.")
+                    exit_choice = input()
+                    if exit_choice.lower() == 'q':
+                        break
 
     except Exception as e:
         print(f"Error: {e}")
@@ -159,6 +151,32 @@ def main():
       "* Quit and return to the main menu.\n"
       "* To exit the TermPDF Viewer, use 'q' in the main menu.\n"
       "* To search within the PDF, use 's' during viewing and enter the keyword to search.\n"
+      "* \n"
+      
+      "*   Searching in PDF:\n"
+"* \n"
+      "*   Press 's' to initiate a search.\n"
+      "*   Enter the keyword you want to search for when prompted.\n"
+        "* The matching words in the PDF will be highlighted in red and bold.\n"
+        "* Options:\n"
+        "* Press 'b' to go back to the previous page.\n"
+        "* Press 'f' to go forward to the next page.\n"
+        "* Press 'q' to exit the search and return to the page where the search began.\n"
+        "* Press 'enter' to continue the search.\n"
+        "* Exiting Search:\n"
+"* \n"
+        "* If there are no more matches and you decide to exit the search ('q'), \n"
+         "* you will return to the page where the search began.\n"
+        "* You can choose to:\n"
+        "* Press 'enter' to continue the search.\n"
+        "* Press 'q' to exit the search and return to the page where the search began.\n"
+        "* Main Menu:\n"
+"* \n"
+        "* Press '1' to scan for PDF files in the current directory.\n"
+        "* Press '2' to view scanned PDF files.\n"
+        "* Press '3' to quit the TermPDF Viewer.\n"
+"* \n"
+
       "-------------------------------------------------------------------------\n"
       "* Important Notes:\n"
       "* - The application has been tested on Linux and macOS.\n"
@@ -217,5 +235,4 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-
+    
