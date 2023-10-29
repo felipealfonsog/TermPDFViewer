@@ -70,6 +70,33 @@ def display_current_page(doc, current_page, total_pages, keyword=None):
     else:
         print(text)
 
+def search_keyword(doc, total_pages, keyword):
+    found_pages = []
+
+    for page_num in range(total_pages):
+        text = doc[page_num].get_text().lower()
+        if keyword in text:
+            found_pages.append(page_num)
+
+    return found_pages
+
+def display_search_results(doc, total_pages, keyword):
+    found_pages = search_keyword(doc, total_pages, keyword)
+
+    if not found_pages:
+        print(f"No matches found for '{keyword}'.")
+        return
+
+    for page_num in found_pages:
+        display_current_page(doc, page_num, total_pages, keyword)
+        choice = input("Press 'Enter' to continue searching, 'q' to exit, or 'o' to open the page: ")
+
+        if choice == 'q':
+            break
+        elif choice == 'o':
+            print(f"Opening page {page_num + 1}...")
+            # Add logic to open the page if needed
+
 def display_pdf(pdf_filename):
     try:
         doc = fitz.open(pdf_filename)
@@ -93,20 +120,7 @@ def display_pdf(pdf_filename):
                 break
             elif choice.lower() == 's':
                 keyword = input("Enter the keyword to search: ").lower()
-                found = False
-
-                for page_num in range(total_pages):
-                    text = doc[page_num].get_text().lower()
-                    if keyword in text:
-                        display_current_page(doc, page_num, total_pages, keyword)
-                        found = True
-
-                if not found:
-                    print(f"No more matches found for '{keyword}'. Press 'q' to exit the search and return to the page where the search began. Press 'enter' to continue the search.")
-                    exit_choice = input()
-                    if exit_choice.lower() == 'q':
-                        break
-
+                display_search_results(doc, total_pages, keyword)
     except Exception as e:
         print(f"Error: {e}")
     finally:
