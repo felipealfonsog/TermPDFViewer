@@ -80,22 +80,26 @@ def search_keyword(doc, total_pages, keyword):
 
     return found_pages
 
-def display_search_results(doc, total_pages, keyword):
+def display_search_results(doc, total_pages, keyword, start_page):
     found_pages = search_keyword(doc, total_pages, keyword)
 
     if not found_pages:
-        print(f"No matches found for '{keyword}'.")
-        return
+        print(f"No more matches found for '{keyword}'.")
+        return start_page
 
     for page_num in found_pages:
         display_current_page(doc, page_num, total_pages, keyword)
-        choice = input("Press 'Enter' to continue searching, 'q' to exit, or 'o' to open the page: ")
+        choice = input("Press 'c' to continue searching, 'q' to exit, 'o' to open the page, 'r' to return to the start page: ")
 
         if choice == 'q':
             break
         elif choice == 'o':
             print(f"Opening page {page_num + 1}...")
-            # Add logic to open the page if needed
+            # Placeholder for opening the page; implement your logic here
+        elif choice == 'r':
+            return start_page
+
+    return found_pages[-1]  # Return the last found page
 
 def display_pdf(pdf_filename):
     try:
@@ -120,7 +124,7 @@ def display_pdf(pdf_filename):
                 break
             elif choice.lower() == 's':
                 keyword = input("Enter the keyword to search: ").lower()
-                display_search_results(doc, total_pages, keyword)
+                current_page = display_search_results(doc, total_pages, keyword, current_page)
     except Exception as e:
         print(f"Error: {e}")
     finally:
