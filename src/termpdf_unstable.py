@@ -266,10 +266,6 @@ def main():
             print("Error displaying About section")
 
 
-
-
-
-
 if __name__ == '__main__':
     main()
     
