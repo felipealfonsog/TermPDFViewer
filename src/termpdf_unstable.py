@@ -211,6 +211,7 @@ def main():
         print("1. Scan for PDF files")
         print("2. View scanned PDF files")
         print("3. Quit")
+        print("4. About/License")
 
         choice = input("Enter the number of your choice: ")
 
@@ -250,6 +251,24 @@ def main():
 
         else:
             print("Invalid choice. Please enter a valid number.")
+
+#option to display abiut section 
+        elif choice == '4':
+            print("By Felipe Alfonso Gonzalez - f.alfonso@res-ear.ch")
+            print("Computer Science Engineer")
+            print("--------------------------")
+            print("Under MIT License / BSD 3")
+            print("https://github.com/felipealfonsog")
+            print("--------------------------")
+            break
+        
+        else:
+            print("Error displaying About section")
+
+
+
+
+
 
 if __name__ == '__main__':
     main()
