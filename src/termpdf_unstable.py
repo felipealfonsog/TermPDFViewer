@@ -131,7 +131,21 @@ def display_pdf(pdf_filename):
         if 'doc' in locals():
             doc.close()
 
-
+def display_about():
+    print("*************************************************")
+    print("TermPDF Viewer - view and navigate PDF files within the terminal.")
+    print("*************************************************")
+    print("*  Simple: TermPDF Viewer is a Python program that enables users to ")
+    print("*  view and navigate PDF files directly within the terminal.")
+    print("*************************************************")
+    print("* Developed and engineered by:")
+    print("* Felipe Alfonso Gonzalez <f.alfonso@res-ear.ch>")
+    print("* Computer Science Engineer")
+    print("* Chile")
+    print("*************************************************")
+    print("* Find me on GitHub: github.com/felipealfonsog")
+    print("* License: MIT")
+    print("*************************************************")
 
 def main():
     print("\n"
@@ -206,12 +220,14 @@ def main():
 
     print("Welcome to the TermPDF Viewer!")
 
+
+
     while True:
         print("\nMain Menu:")
         print("1. Scan for PDF files")
         print("2. View scanned PDF files")
-        print("3. Quit")
-        print("4. About/License")
+        print("3. About")
+        print("4. Quit")
 
         choice = input("Enter the number of your choice: ")
 
@@ -246,28 +262,12 @@ def main():
                     print("Invalid input. Please enter a valid number.")
 
         elif choice == '3':
+            display_about()
+        elif choice == '4':
             print("Goodbye!")
             break
-
         else:
             print("Invalid choice. Please enter a valid number.")
-            
-        #option to display about section 
-        elif choice == '4':
-            # display_about_section()
-            
-            print("---------------------------------")
-            print("By Felipe Alfonso Gonzalez")
-            print("Computer Science Engineer")
-            print("f.alfonso@res-ear.ch")
-            print("https://github.com/felipealfonsog")
-            print("---------------------------------")
-            print("Under MIT License / BSD 3")
-            print("---------------------------------")
-            break
-
-        else:
-            print("Error displaying About section")
 
 if __name__ == '__main__':
     main()
