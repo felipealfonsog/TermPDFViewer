@@ -251,21 +251,23 @@ def main():
 
         else:
             print("Invalid choice. Please enter a valid number.")
-
-#option to display abiut section 
+            
+        #option to display about section 
         elif choice == '4':
-            print("By Felipe Alfonso Gonzalez - f.alfonso@res-ear.ch")
+            # display_about_section()
+            
+            print("---------------------------------")
+            print("By Felipe Alfonso Gonzalez")
             print("Computer Science Engineer")
-            print("--------------------------")
-            print("Under MIT License / BSD 3")
+            print("f.alfonso@res-ear.ch")
             print("https://github.com/felipealfonsog")
-            print("--------------------------")
+            print("---------------------------------")
+            print("Under MIT License / BSD 3")
+            print("---------------------------------")
             break
-        
+
         else:
             print("Error displaying About section")
-
-
 
 if __name__ == '__main__':
     main()
