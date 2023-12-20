@@ -144,7 +144,7 @@ def display_about():
     print("* Chile")
     print("*************************************************")
     print("* Find me on GitHub: github.com/felipealfonsog")
-    print("* License: MIT")
+    print("* License: MIT & BSD v3 - Restrictive by author")
     print("*************************************************")
 
 def main():
@@ -243,7 +243,7 @@ def main():
         elif choice == '2':
             pdf_files = scan_pdf_files()
             if not pdf_files:
-                print("No PDF files found in the current directory.")
+                print("No PDF files found in the current directory or scanned already.")
             else:
                 print("Scanned PDF files:")
                 for i, pdf_file in enumerate(pdf_files, start=1):
