@@ -206,8 +206,7 @@ def main():
 "* \n"
         "* Press '1' to scan for PDF files in the current directory.\n"
         "* Press '2' to view scanned PDF files.\n"
-        "* Press '3' to check the LICENCE and CREDITS.\n"
-        "* Press '4' to quit the TermPDF Viewer.\n"
+        "* Press '3' to quit the TermPDF Viewer.\n"
 "* \n"
 
       "-------------------------------------------------------------------------\n"
