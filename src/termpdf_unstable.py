@@ -225,6 +225,7 @@ def main():
 
     while True:
         print("\nMain Menu:")
+        print("\n----------------------")
         print("1. Scan for PDF files")
         print("2. View scanned PDF files")
         print("3. About - Licence and other stuff")
