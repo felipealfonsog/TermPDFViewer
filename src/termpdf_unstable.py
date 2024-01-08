@@ -98,6 +98,8 @@ def display_search_results(doc, total_pages, keyword, start_page):
             # Placeholder for opening the page; implement logic here
         elif choice == 'r':
             return start_page
+            # Testing option
+            # display_current_page(doc, page_num, total_pages, keyword)
 
     return found_pages[-1]  # Return the last found page
 
@@ -132,9 +134,10 @@ def display_pdf(pdf_filename):
             doc.close()
 
 def display_about():
-    print("*************************************************")
+    print("------------------------------------------------------------------")
+    print("******************************************************************")
     print("TermPDF Viewer - view and navigate PDF files within the terminal.")
-    print("*************************************************")
+    print("------------------------------------------------------------------")
     print("*  Simple: TermPDF Viewer is a Python program that enables users to ")
     print("*  view and navigate PDF files directly within the terminal.")
     print("*************************************************")
