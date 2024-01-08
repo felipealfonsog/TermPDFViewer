@@ -95,7 +95,7 @@ def display_search_results(doc, total_pages, keyword, start_page):
             break
         elif choice == 'o':
             print(f"Opening page {page_num + 1}...")
-            # Placeholder for opening the page; implement your logic here
+            # Placeholder for opening the page; implement logic here
         elif choice == 'r':
             return start_page
 
