@@ -231,7 +231,7 @@ def main():
         print("\n----------------------")
         print("1. Scan for PDF files")
         print("2. View scanned PDF files")
-        print("3. About - Licence and other stuff")
+        print("3. About - Licence and credits")
         print("4. Quit")
 
         choice = input("Enter the number of your choice: ")
