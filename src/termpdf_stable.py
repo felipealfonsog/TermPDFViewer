@@ -8,6 +8,9 @@
 
 *************************************************
 TermPDF Viewer - view and navigate PDF files within the terminal.
+.................................................
+ This software is licensed under the MIT License. 
+ Released on: 2019-07-31
 *************************************************
 *  Simple: TermPDF Viewer is a Python program that enables users to 
 view and navigate PDF files directly within the terminal.
@@ -95,9 +98,11 @@ def display_search_results(doc, total_pages, keyword, start_page):
             break
         elif choice == 'o':
             print(f"Opening page {page_num + 1}...")
-            # Placeholder for opening the page; implement your logic here
+            # Placeholder for opening the page; implement logic here
         elif choice == 'r':
             return start_page
+            # Testing option
+            # display_current_page(doc, page_num, total_pages, keyword)
 
     return found_pages[-1]  # Return the last found page
 
@@ -131,6 +136,67 @@ def display_pdf(pdf_filename):
         if 'doc' in locals():
             doc.close()
 
+def display_about():
+    print("------------------------------------------------------------------")
+    print("TermPDF Viewer - Credits & License.")
+    print("------------------------------------------------------------------")
+    print("*  Simple: TermPDF Viewer is a Python program that enables users to ")
+    print("*  view and navigate PDF files directly within the terminal.")
+    print("------------------------------------------------")
+    print("* Developed and engineered by:")
+    print("* Felipe Alfonso Gonzalez <f.alfonso@res-ear.ch>")
+    print("* Computer Science Engineer")
+    print("* Chile")
+    print("------------------------------------------------")
+    print("* Find me on GitHub: github.com/felipealfonsog")
+    print("* License: MIT & BSD v3 - Restrictive by author")
+    print("------------------------------------------------")
+
+def display_faq():
+    print("* ------------------------------------------------- \n"
+          "* The TermPDF FAQ & Usage:\n"
+          "* The TermPDF Viewer will start, allowing you to:\n"
+          "* -------------------------------------------------\n"
+          "* Scan for PDF files in the current directory.\n"
+          "* Select a PDF file to view by entering its number.\n"
+          "* View the PDF with options to move back, forward, search, or return to the main menu.\n"
+          "* Quit and return to the main menu.\n"
+          "* To exit the TermPDF Viewer, use 'q' in the main menu.\n"
+          "* To search within the PDF, use 's' during viewing and enter the keyword to search.\n"
+          "* \n"
+          "*   Searching in PDF:\n"
+          "* \n"
+          "*   Press 's' to initiate a search.\n"
+          "*   Enter the keyword you want to search for when prompted.\n"
+          "* The matching words in the PDF will be highlighted in red and bold.\n"
+          "* Options:\n"
+          "* Press 'b' to go back to the previous page.\n"
+          "* Press 'f' to go forward to the next page.\n"
+          "* Press 'q' to exit the search and return to the page where the search began.\n"
+          "* Press 'enter' to continue the search.\n"
+          "* Exiting Search:\n"
+          "* \n"
+          "* If there are no more matches and you decide to exit the search ('q'), \n"
+          "* you will return to the page where the search began.\n"
+          "* You can choose to:\n"
+          "* Press 'enter' to continue the search.\n"
+          "* Press 'q' to exit the search and return to the page where the search began.\n"
+          "* Main Menu:\n"
+          "* \n"
+          "* Press '1' to scan for PDF files in the current directory.\n"
+          "* Press '2' to view scanned PDF files.\n"
+          "* Press '3' to check the FAQ and Usage.\n"
+          "* Press '4' to check the LICENCE and CREDITS.\n"
+          "* Press '5' to quit the TermPDF Viewer.\n"
+          "* \n"
+          "-------------------------------------------------------------------------\n"
+          "* Important Notes:\n"
+          "* - The application has been tested on Linux and macOS.\n"
+          "* - For Windows, additional configurations may be required.\n"
+          "* - Make sure to fulfill the prerequisites before running the application.\n"
+          "* - For more information, please refer to the project documentation.\n"
+          "-------------------------------------------------------------------------\n")
+
 
 
 def main():
@@ -162,55 +228,20 @@ def main():
       "  pip install PyMuPDF\n"
       "  pip install termcolor\n"
       "\n"
-      "* The TermPDF Viewer will start, allowing you to: \n"
-      "* Scan for PDF files in the current directory.\n"
-      "* Select a PDF file to view by entering its number.\n"
-      "* View the PDF with options to move back, forward, search, or return to the main menu.\n"
-      "* Quit and return to the main menu.\n"
-      "* To exit the TermPDF Viewer, use 'q' in the main menu.\n"
-      "* To search within the PDF, use 's' during viewing and enter the keyword to search.\n"
-      "* \n"
-      
-      "*   Searching in PDF:\n"
-"* \n"
-      "*   Press 's' to initiate a search.\n"
-      "*   Enter the keyword you want to search for when prompted.\n"
-        "* The matching words in the PDF will be highlighted in red and bold.\n"
-        "* Options:\n"
-        "* Press 'b' to go back to the previous page.\n"
-        "* Press 'f' to go forward to the next page.\n"
-        "* Press 'q' to exit the search and return to the page where the search began.\n"
-        "* Press 'enter' to continue the search.\n"
-        "* Exiting Search:\n"
-"* \n"
-        "* If there are no more matches and you decide to exit the search ('q'), \n"
-         "* you will return to the page where the search began.\n"
-        "* You can choose to:\n"
-        "* Press 'enter' to continue the search.\n"
-        "* Press 'q' to exit the search and return to the page where the search began.\n"
-        "* Main Menu:\n"
-"* \n"
-        "* Press '1' to scan for PDF files in the current directory.\n"
-        "* Press '2' to view scanned PDF files.\n"
-        "* Press '3' to quit the TermPDF Viewer.\n"
-"* \n"
-
-      "-------------------------------------------------------------------------\n"
-      "* Important Notes:\n"
-      "* - The application has been tested on Linux and macOS.\n"
-      "* - For Windows, additional configurations may be required.\n"
-      "* - Make sure to fulfill the prerequisites before running the application.\n"
-      "* - For more information, please refer to the project documentation.\n"
-      "-------------------------------------------------------------------------\n"
     )
 
     print("Welcome to the TermPDF Viewer!")
 
+
+
     while True:
         print("\nMain Menu:")
+        print("\n----------------------")
         print("1. Scan for PDF files")
         print("2. View scanned PDF files")
-        print("3. Quit")
+        print("3. FAQ - Usage")
+        print("4. About - Licence and credits")
+        print("5. Quit")
 
         choice = input("Enter the number of your choice: ")
 
@@ -226,7 +257,7 @@ def main():
         elif choice == '2':
             pdf_files = scan_pdf_files()
             if not pdf_files:
-                print("No PDF files found in the current directory.")
+                print("No PDF files found in the current directory or scanned already.")
             else:
                 print("Scanned PDF files:")
                 for i, pdf_file in enumerate(pdf_files, start=1):
@@ -245,9 +276,12 @@ def main():
                     print("Invalid input. Please enter a valid number.")
 
         elif choice == '3':
+            display_faq()
+        elif choice == '4':
+            display_about()
+        elif choice == '5':
             print("Goodbye!")
             break
-
         else:
             print("Invalid choice. Please enter a valid number.")
 
