@@ -22,33 +22,6 @@ view and navigate PDF files directly within the terminal.
 *   You can install it using pip: pip install PyMuPDF
 *   Make sure to include the appropriate model or adapt it for your needs.
 *************************************************
-* How to run the TermPDF Viewer:
-
-* Clone the TermPDF Viewer repository from GitHub.
-* Navigate to the project directory:
-
-* cd TermPDF-Viewer
-
-* Install PyMuPDF library (if not already installed):
-  pip install PyMuPDF
-
-* Run the TermPDF Viewer:
-* python termpdf.py
-
-* The TermPDF Viewer will start, allowing you to:
-* Scan for PDF files in the current directory.
-* Select a PDF file to view by entering its number.
-* View the PDF with options to move back, forward, or return to the main menu.
-* Quit and return to the main menu.
-* To exit the TermPDF Viewer, use 'q' in the main menu.
-*
-*************************************************
-* Important Notes:
-* - The application has been tested on Linux and macOS.
-* - For Windows, additional configurations may be required.
-* - Make sure to fulfill the prerequisites before running the application.
-* - For more information, please refer to the project documentation.
-*************************************************
 '
 
 welcome_message() {
@@ -76,42 +49,70 @@ welcome_message() {
     read
 }
 
-install_homebrew() {
-    if ! command -v brew &>/dev/null; then
-        echo "Homebrew not found. Installing Homebrew..."
-        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fix_externally_managed() {
+    echo "Checking for EXTERNALLY-MANAGED restriction files..."
+    
+    local search_paths=(
+        "/opt/homebrew/Cellar/python@*/*/Frameworks/Python.framework/Versions/*/lib/python*/EXTERNALLY-MANAGED"
+        "/usr/local/Cellar/python@*/*/Frameworks/Python.framework/Versions/*/lib/python*/EXTERNALLY-MANAGED"
+        "/usr/lib/python*/EXTERNALLY-MANAGED"
+        "/usr/local/lib/python*/EXTERNALLY-MANAGED"
+    )
+    
+    local found_any=false
+    
+    for path in "${search_paths[@]}"; do
+        for file in $(find $(dirname "$path" 2>/dev/null) -name EXTERNALLY-MANAGED 2>/dev/null); do
+            echo "Found: $file"
+            sudo mv "$file" "${file}_"
+            echo "Renamed to: ${file}_"
+            found_any=true
+        done
+    done
+
+    if [ "$found_any" = true ]; then
+        echo "EXTERNALLY-MANAGED files renamed. Pip installations should work now."
+    else
+        echo "No EXTERNALLY-MANAGED files found."
     fi
 }
 
 install_dependencies() {
-    if ! command -v python &>/dev/null; then
+    if ! command -v python3 &>/dev/null; then
         echo "Python not found. Installing Python..."
-        brew install python
+        if [[ "$(uname -s)" == "Darwin" ]]; then
+            brew install python
+        else
+            sudo apt install -y python3 python3-pip
+        fi
     else
         echo "Python is already installed"
     fi
 
-    if ! command -v pip &>/dev/null; then
+    if ! command -v pip3 &>/dev/null; then
         echo "Pip not found. Installing pip..."
-        brew install python
+        if [[ "$(uname -s)" == "Darwin" ]]; then
+            brew install python
+        else
+            sudo apt install -y python3-pip
+        fi
     else
         echo "Pip is already installed"
     fi
 
-    if ! pip show pymupdf &>/dev/null; then
+    if ! pip3 show PyMuPDF &>/dev/null; then
         echo "PyMuPDF not found. Installing PyMuPDF..."
-        pip install PyMuPDF
+        pip3 install PyMuPDF
     else
         echo "PyMuPDF is already installed"
     fi
 
-    if ! pip show termcolor &>/dev/null; then
+    if ! pip3 show termcolor &>/dev/null; then
         echo "Termcolor library not found. Installing Termcolor..."
-        pip install termcolor
+        pip3 install termcolor
     else
         echo "Termcolor is already installed"
     fi
-
 }
 
 download_wrp() {
@@ -142,7 +143,6 @@ download_termpdf() {
 
 compile_term_pdf_wrapper() {
     echo "Compiling term-pdf-wrapper..."
-    
     gcc -o term-pdf-wrapper term-pdf-wrp.c || { 
         echo "Error: Compilation failed." 
         exit 1
@@ -153,25 +153,11 @@ compile_term_pdf_wrapper() {
 
 move_to_bin_directory() {
     echo "Moving compiled binary to bin directory..."
- 
-
     sudo mv termpdf.py "/usr/local/bin"
     sudo mv term-pdf-wrapper "/usr/local/bin/term-pdf"
- 
- 
     sudo chmod +x "/usr/local/bin/termpdf.py"
     sudo chmod +x "/usr/local/bin/term-pdf"
-
     echo "Binary moved to '/usr/local/bin' and permissions set."
-}
-
-
-run_termpdf_viewer() {
-    echo "Running the TermPDF Viewer..."
-    
-    #python3 /home/felipe/.config/termpdf.py 
-    python3 /usr/local/bin/termpdf.py
-    echo "TermPDF Viewer executed."
 }
 
 remove_compiled_file() {
@@ -182,24 +168,13 @@ remove_compiled_file() {
     echo "Cleanup complete."
 }
 
-set_permissions() {
-    echo "Setting permissions..."
-
-    # chmod 755 ./config/termpdf.py
-
-    echo "Permissions set."
-}
-
-
-
 welcome_message
+fix_externally_managed
 install_dependencies
 download_wrp
 download_termpdf
 compile_term_pdf_wrapper
 move_to_bin_directory
-# run_termpdf_viewer
 remove_compiled_file
-# set_permissions
 
 echo "TermPDF Viewer has been successfully installed as 'term-pdf' command!"
