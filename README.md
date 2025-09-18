@@ -1,13 +1,15 @@
 
 
-<p align="center">
-  <a href="https://github.com/felipealfonsog/OptiCPU">
-    <img src="images/opticpu-banner.png" alt="OptiCPU Banner" width="400" height="30%"/>
+<div align="center">
+  <a href="https://github.com/felipealfonsog/OptiCPU" target="_blank" rel="noopener noreferrer">
+    <img src="images/opticpu-banner.png" alt="OptiCPU Banner" width="400" />
   </a>
   <br>
-  
+  <a href="https://github.com/felipealfonsog/OptiCPU" target="_blank" rel="noopener noreferrer">
     <strong>Check out the OptiCPU Project too! 🚀</strong>
-</p>
+  </a>
+</div>
+
 
 
 #
