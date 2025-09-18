@@ -1,9 +1,8 @@
 <p align="center">
-  <img src="images/opticpu-banner.png" alt="OptiCPU Banner" width="400"/>
-
-##### Check out the OptiCPU Project too! 🚀
-
+  <img src="images/opticpu-banner.png" alt="OptiCPU Banner" width="400"/><br>
+  <strong>##### Check out the OptiCPU Project too! 🚀</strong>
 </p>
+
 
 #
 
