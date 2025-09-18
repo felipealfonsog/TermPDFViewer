@@ -1,6 +1,6 @@
 <p align="center">
   <img src="images/opticpu-banner.png" alt="OptiCPU Banner" width="400" height="30%"/><br>
-  <strong>##### Check out the OptiCPU Project too! 🚀</strong>
+  <strong>Check out the OptiCPU Project too! 🚀</strong>
 </p>
 
 
