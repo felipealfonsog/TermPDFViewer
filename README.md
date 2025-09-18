@@ -1,3 +1,19 @@
+
+
+<div align="center">
+  <a href="https://github.com/felipealfonsog/OptiCPU" target="_blank" rel="noopener noreferrer">
+    <img src="images/opticpu-banner.png" alt="OptiCPU Banner" width="400" />
+  </a>
+  <br>
+  <a href="https://github.com/felipealfonsog/OptiCPU" target="_blank" rel="noopener noreferrer">
+    <strong>Check out the OptiCPU Project too! 🚀</strong>
+  </a>
+</div>
+
+
+
+#
+
 ### 📄 Terminal PDF Viewer [(Experimental Project)](#important-experimental-project)* 
 ##### Approaching a more stable release! Latest version is running smoothly (v.0.0.3.9 >).
 
