@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="images/opticpu-banner.png" alt="OptiCPU Banner" width="400"/><br>
+  <img src="images/opticpu-banner.png" alt="OptiCPU Banner" width="400" height="50%"/><br>
   <strong>##### Check out the OptiCPU Project too! 🚀</strong>
 </p>
 
