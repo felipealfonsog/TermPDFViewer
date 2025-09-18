@@ -1,3 +1,7 @@
+![OptiCPU Banner](images/opticpu-banner-png)
+<sub>Check out the OptiCPU Project!.</sub>
+#
+
 ### 📄 Terminal PDF Viewer [(Experimental Project)](#important-experimental-project)* 
 ##### Approaching a more stable release! Latest version is running smoothly (v.0.0.3.9 >).
 
