@@ -1,6 +1,9 @@
-![OptiCPU Banner](images/opticpu-banner.png)
+<p align="center">
+  <img src="images/opticpu-banner.png" alt="OptiCPU Banner" width="400"/>
+</p>
 
-<sub>Check out the OptiCPU Project!.</sub>
+<sub>Check out the OptiCPU Project!</sub>
+
 #
 
 ### 📄 Terminal PDF Viewer [(Experimental Project)](#important-experimental-project)* 
