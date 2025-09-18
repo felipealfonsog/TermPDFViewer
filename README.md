@@ -1,4 +1,5 @@
-![OptiCPU Banner](images/opticpu-banner-png)
+![OptiCPU Banner](images/opticpu-banner.png)
+
 <sub>Check out the OptiCPU Project!.</sub>
 #
 
