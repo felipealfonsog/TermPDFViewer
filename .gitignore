@@ -8,6 +8,8 @@ __pycache__/
 #sql/
 #dist/
 localpycs/
+pkg/
+repo/
 *.spec
 *.pyc
 *.pkg
