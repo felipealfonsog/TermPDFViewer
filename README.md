@@ -84,6 +84,7 @@ Convenient File Access: Open and navigate PDF documents without leaving the term
 * PyMuPDF: A Python binding for the MuPDF library, used to handle PDF file rendering and interaction.
 *   You can install it using pip: pip install PyMuPDF
 *   Make sure to include the appropriate model or adapt it for your needs.
+* If you have any issue with Python's pip use this script to fix the issue with the installation of PyMuPDF: [here](https://gist.github.com/felipealfonsog/d3bf4d70504f52c03094d2c0d79992b0).
 
 #### Futures
 
