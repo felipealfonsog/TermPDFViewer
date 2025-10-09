@@ -72,6 +72,7 @@ def display_current_page(doc, current_page, total_pages, keyword=None):
         print(highlighted_text)
     else:
         print(text)
+        
 
 def search_keyword(doc, total_pages, keyword):
     found_pages = []
@@ -80,6 +81,24 @@ def search_keyword(doc, total_pages, keyword):
         text = doc[page_num].get_text().lower()
         if keyword in text:
             found_pages.append(page_num)
+
+    if not found_pages:
+        print(f"No matches found for '{keyword}'.")
+        return found_pages
+
+    if keyword.lower() == 'q':
+        return start_page
+
+    print(f"Found {len(found_pages)} matches for '{keyword}'.")
+    print("Pages found:")
+    for page_num in found_pages:
+        print(f"- Page {page_num + 1}")
+    print("Enter 'enter' to continue the search or 'q' to exit the search.")
+    choice = input("Enter your choice: ")
+    if choice == 'q':
+        return start_page
+    elif choice == 'enter':
+        return found_pages       
 
     return found_pages
 
@@ -249,6 +268,7 @@ def main():
             pdf_files = scan_pdf_files()
             if not pdf_files:
                 print("No PDF files found in the current directory.")
+                print("Please place PDF files in the current directory and try again.")
             else:
                 print("Scanned PDF files:")
                 for i, pdf_file in enumerate(pdf_files, start=1):
@@ -258,6 +278,7 @@ def main():
             pdf_files = scan_pdf_files()
             if not pdf_files:
                 print("No PDF files found in the current directory or scanned already.")
+                print("Please place PDF files in the current directory and try again.")
             else:
                 print("Scanned PDF files:")
                 for i, pdf_file in enumerate(pdf_files, start=1):
