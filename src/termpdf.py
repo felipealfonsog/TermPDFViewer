@@ -254,6 +254,8 @@ def main():
       "* Install PyMuPDF library (if not already installed):\n"
       "  pip install PyMuPDF\n"
       "  pip install termcolor\n"
+      "*   If you have anny issue with pip, fix the pip lock using the following script:\n"
+      "*   https://gist.github.com/felipealfonsog/d3bf4d70504f52c03094d2c0d79992b0\n"
       "\n"
     )
 
