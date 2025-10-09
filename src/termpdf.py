@@ -24,6 +24,10 @@ view and navigate PDF files directly within the terminal.
 * Python 3.x: The program is written in Python and requires a Python 3.x interpreter to run.
 * PyMuPDF: A Python binding for the MuPDF library, used to handle PDF file rendering and interaction.
 *   You can install it using pip: pip install PyMuPDF
+* ----------------------------------------------------------------- -----------------------
+* If you have anny issue with pip, fix the pip lock using the following script:
+*   https://gist.github.com/felipealfonsog/d3bf4d70504f52c03094d2c0d79992b0
+*-----------------------------------------------------------------  ------------------------
 *   Make sure to include the appropriate model or adapt it for your needs.
 *************************************************
 
