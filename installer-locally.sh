@@ -8,7 +8,7 @@ ASCII="
 ░▒█░░ ▀▀▀ ▀░▀▀ ▀░░░▀ ▒█░░░ ▒█▄▄▀ ▒█░░░
 
 TermPDF Viewer - Install Script (pipx edition)
-Developed by: Felipe Alfonso González
+Developed by: Felipe Alfonso González 
 --------------------------------------------------
 "
 
