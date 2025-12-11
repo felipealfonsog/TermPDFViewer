@@ -8,7 +8,7 @@ ASCII="
 ░▒█░░ ▀▀▀ ▀░▀▀ ▀░░░▀ ▒█░░░ ▒█▄▄▀ ▒█░░░
 
 TermPDF Viewer - Install Script (pipx edition)
-Developed by: Felipe Alfonso González 
+Developed by: Felipe Alfonso González
 --------------------------------------------------
 "
 
@@ -30,7 +30,20 @@ else
 fi
 
 #----------------------------------------------------------
-# 2. Create temporary build directory
+# 2. Ensure ~/.local/bin is in PATH (permanently)
+#----------------------------------------------------------
+
+if [[ ":$PATH:" != *":$HOME/.local/bin:"* ]]; then
+    echo "→ Adding ~/.local/bin to your PATH permanently..."
+    echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
+    export PATH="$HOME/.local/bin:$PATH"
+    echo "✓ PATH updated and applied to current session."
+else
+    echo "→ ~/.local/bin already present in PATH."
+fi
+
+#----------------------------------------------------------
+# 3. Create temporary build directory
 #----------------------------------------------------------
 
 BUILD_DIR="$(mktemp -d)"
@@ -38,8 +51,7 @@ echo "→ Using temporary directory: $BUILD_DIR"
 cd "$BUILD_DIR"
 
 #----------------------------------------------------------
-# 3. Download TermPDF Viewer sources
-#   (Modify these URLs if your repo changes)
+# 4. Download TermPDF Viewer sources
 #----------------------------------------------------------
 
 echo "→ Downloading TermPDF sources..."
@@ -57,7 +69,7 @@ curl -L \
   "https://raw.githubusercontent.com/felipealfonsog/TermPDFViewer/main/README.md"
 
 #----------------------------------------------------------
-# 4. Create package structure
+# 5. Create package structure
 #----------------------------------------------------------
 
 echo "→ Creating Python package structure..."
@@ -68,7 +80,7 @@ mv wrapper.c termpdf/
 echo "" > termpdf/__init__.py
 
 #----------------------------------------------------------
-# 5. Create pyproject.toml (pipx needs this)
+# 6. Create pyproject.toml
 #----------------------------------------------------------
 
 cat << 'EOF' > pyproject.toml
@@ -89,11 +101,10 @@ term-pdf = "termpdf.termpdf:main"
 EOF
 
 #----------------------------------------------------------
-# 6. Install using pipx
+# 7. Install using pipx
 #----------------------------------------------------------
 
 echo "→ Installing TermPDF Viewer with pipx..."
-
 pipx install .
 
 echo
@@ -104,5 +115,5 @@ echo
 echo "    term-pdf archivo.pdf"
 echo
 echo "Executables installed in: $HOME/.local/bin/"
-echo "Make sure this directory is in your PATH."
+echo "(PATH was auto-fixed — you don't need to do anything else.)"
 echo "--------------------------------------------------"
