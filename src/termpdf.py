@@ -159,6 +159,36 @@ def display_pdf(pdf_filename):
         if 'doc' in locals():
             doc.close()
 
+def display_pdf_data_show(pdf_filename):
+	try:
+		doc = fitz.open(pdf_filename)
+		total_pages = doc.page_count
+		current_page = 0
+
+		while True:
+			if not (0 <= current_page < total_pages):
+				print("Invalid page number.")
+				break
+
+			page = doc[current_page]
+			display_current_page(doc, current_page, total_pages)
+
+			choice = input("Enter 'b' to go back, 'f' to go forward, 's' to search, 'q' to quit: ")
+			if choice == 'b':
+				current_page = max(current_page - 1, 0)
+			elif choice == 'f':
+				current_page = min(current_page + 1, total_pages - 1)
+			elif choice == 'q':
+				break
+			elif choice.lower() == 's':
+				keyword = input("Enter the keyword to search: ").lower()
+				current_page = display_search_results(doc, total_pages, keyword, current_page)
+	except Exception as e:
+		print(f"Error: {e}")
+	finally:
+		if 'doc' in locals():
+			doc.close()
+
 def display_about():
     print("------------------------------------------------------------------")
     print("TermPDF Viewer - Credits & License.")
@@ -270,6 +300,8 @@ def main():
         print("2. View scanned PDF files")
         print("3. FAQ - Usage")
         print("4. About - Licence and credits")
+        prinnt("------------------------------------------------")
+        print("4.1 Show data of the PDF file")
         print("5. Quit")
 
         choice = input("Enter the number of your choice: ")
@@ -310,6 +342,8 @@ def main():
             display_faq()
         elif choice == '4':
             display_about()
+        elif choice == '4.1':
+            display_pdf_data_show()
         elif choice == '5':
             print("Goodbye!")
             break
